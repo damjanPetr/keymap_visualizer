@@ -1,0 +1,117 @@
+left:
+  1-row:
+    - key: \`
+      value: 192
+    - key: 1
+      value: 192
+    - key: 2
+      value: 49
+    - key: 3
+      value: 50
+    - key: 4
+      value: 51
+    - key: 5
+      value: 52
+  2-row:
+    - key: \
+      value: 220
+    - key: \,
+      value: 188
+    - key: .
+      value: 190
+    - key: p
+      value: 80
+    - key: y
+      value: 89
+  3-row:
+    - key: delete
+      value: 89
+    - key: o
+      value: 79
+    - key: e
+      value: 69
+    - key: u
+      value: 85
+    - key: i
+      value: 73
+  4-row:
+    - key: l-shift
+      value: 891
+    - key: ;
+      value: 186
+    - key: q
+      value: 81
+    - key: j
+      value: 74
+    - key: k
+      value: 75
+    - key: x
+      value: 88
+
+right:
+  1-row:
+    - key: 6
+      value: 53
+    - key: 7
+      value: 54
+    - key: 8
+      value: 55
+    - key: 9
+      value: 56
+    - key: 0
+      value: 57
+    - key: =
+      value: 187
+  2-row:
+    - key: f
+      value: 70
+    - key: c
+      value: 67
+    - key: r
+      value: 82
+    - key: l
+      value: 76
+    - key: /
+      value: 191
+  3-row:
+    - key: d
+      value: 68
+    - key: h
+      value: 72
+    - key: t
+      value: 84
+    - key: n
+      value: 78
+    - key: s
+      value: 83
+    - key: \-
+      value: 189
+  4-row:
+    - key: b
+      value: 66
+    - key: m
+      value: 77
+    - key: w
+      value: 87
+    - key: v
+      value: 86
+    - key: z
+      value: 90
+    - key: r-shift
+      value: 98
+
+left-thumbs:
+  big-0: 27
+  big-1: 8
+  top-0: 91
+  top-1: 17
+  side-0: 18
+  side-1: 16
+
+right-thumbs:
+  big-0: 27
+  big-1: 8
+  top-0: 91
+  top-1: 17
+  side-0: 18
+  side-1: 16

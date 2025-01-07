@@ -1,8 +1,26 @@
 @import "./reset.css";
 
-t header {
+header {
     background-color: #282c34;
     color: white;
-    padding: 10px 20px;
+    height: 50px;
+    line-height: 50px;
     text-align: center;
+}
+
+main {
+    background: cornsilk;
+    min-height: calc(100vh - 50px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    div:nth-child(1) {
+        background: skyblue;
+
+    }
+
+    div:nth-child(2) {
+        background: teal;
+
+    }
 }

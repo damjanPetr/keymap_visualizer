@@ -1,19 +1,17 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-@customElement("key-button")
-export class KeyButton extends LitElement {
+@customElement("right-keyboard")
+export class RightKeyboard extends LitElement {
   static styles = css``;
 
-  @property() text?: string;
-
   render() {
-    return html`<div>${this.text}</div>`;
+    return html`<p>uhtenoautneao</p>`;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "key-button": KeyButton;
+    "right-keyboard": RightKeyboard;
   }
 }
