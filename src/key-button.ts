@@ -3,12 +3,20 @@ import { customElement, property } from "lit/decorators.js";
 
 @customElement("key-button")
 export class KeyButton extends LitElement {
-  static styles = css``;
+  static styles = css`
+    button:hover {
+      outline: 2px solid blue;
+    }
+    button {
+    }
+  `;
 
-  @property() text?: string;
-
+  @property() heigth = 30;
+  @property() width = 30;
   render() {
-    return html`<div>${this.text}</div>`;
+    return html`<button>
+      <slot />
+    </button>`;
   }
 }
 

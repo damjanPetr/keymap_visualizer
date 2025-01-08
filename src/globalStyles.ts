@@ -1,6 +1,5 @@
 import { LitElement } from "lit";
-import { LeftKeyboard } from "./left-keyboard";
-import { RightKeyboard } from "./right-keyboard";
+import { KeyboardSide } from "./keyboard-side";
 
 let globalSheets = null;
 export function getGlobalStyleSheets() {
@@ -29,5 +28,4 @@ function addStylesToGlobal(element: LitElement) {
   ];
 }
 
-addStylesToGlobal(LeftKeyboard);
-addStylesToGlobal(RightKeyboard);
+addStylesToGlobal(KeyboardSide);
