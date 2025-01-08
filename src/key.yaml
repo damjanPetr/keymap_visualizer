@@ -1,6 +1,6 @@
 left:
   1-row:
-    - key: \`
+    - key: 0
       value: 192
     - key: 1
       value: 192
@@ -13,91 +13,97 @@ left:
     - key: 5
       value: 52
   2-row:
-    - key: \
+    - key: 0
       value: 220
-    - key: \,
+    - key: 1
       value: 188
-    - key: .
+    - key: 2
       value: 190
-    - key: p
+    - key: 3
       value: 80
-    - key: y
+    - key: 4
+      value: 89
+    - key: 5
       value: 89
   3-row:
-    - key: delete
+    - key: 0
       value: 89
-    - key: o
+    - key: 1
       value: 79
-    - key: e
+    - key: 2
       value: 69
-    - key: u
+    - key: 3
       value: 85
-    - key: i
+    - key: 4
       value: 73
-  4-row:
-    - key: l-shift
-      value: 891
-    - key: ;
-      value: 186
-    - key: q
+    - key: 5
       value: 81
-    - key: j
+  4-row:
+    - key: 0
+      value: 891
+    - key: 1
+      value: 186
+    - key: 2
+      value: 81
+    - key: 3
       value: 74
-    - key: k
+    - key: 4
       value: 75
-    - key: x
+    - key: 5
       value: 88
 
 right:
   1-row:
-    - key: 6
-      value: 53
-    - key: 7
-      value: 54
-    - key: 8
-      value: 55
-    - key: 9
-      value: 56
     - key: 0
+      value: 53
+    - key: 1
+      value: 54
+    - key: 2
+      value: 55
+    - key: 3
+      value: 56
+    - key: 4
       value: 57
-    - key: =
+    - key: 5
       value: 187
   2-row:
-    - key: f
+    - key: 0
       value: 70
-    - key: c
+    - key: 1
       value: 67
-    - key: r
+    - key: 2
       value: 82
-    - key: l
+    - key: 3
       value: 76
-    - key: /
+    - key: 4
       value: 191
+    - key: 5
+      value: 189
   3-row:
-    - key: d
+    - key: 0
       value: 68
-    - key: h
+    - key: 1
       value: 72
-    - key: t
+    - key: 2
       value: 84
-    - key: n
+    - key: 3
       value: 78
-    - key: s
+    - key: 4
       value: 83
-    - key: \-
+    - key: 5
       value: 189
   4-row:
-    - key: b
+    - key: 0
       value: 66
-    - key: m
+    - key: 1
       value: 77
-    - key: w
+    - key: 2
       value: 87
-    - key: v
+    - key: 3
       value: 86
-    - key: z
+    - key: 4
       value: 90
-    - key: r-shift
+    - key: 5
       value: 98
 
 left-thumbs:
