@@ -1,5 +1,5 @@
 import { LitElement } from "lit";
-import { KeyboardSide } from "./keyboard-side";
+import { KeyboardSide } from "../components/keyboard-side";
 
 let globalSheets = null;
 export function getGlobalStyleSheets() {

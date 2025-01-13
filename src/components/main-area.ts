@@ -1,12 +1,19 @@
 import { LitElement, css, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { Keywell, Thumbs } from "./types";
+import { Keywell, Thumbs } from "../types";
+import { parsedData } from "../fetch";
 import "./keyboard-side";
-import { parsedData } from "./main";
 
 @customElement("main-area")
 export class MainArea extends LitElement {
-  static styles = css``;
+  static styles = css`
+    :host {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      place-items: center center;
+      background: teal;
+    }
+  `;
 
   @property() leftKeyboard = {
     keys: parsedData["left"] as Keywell,
