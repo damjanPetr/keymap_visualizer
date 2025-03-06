@@ -1,5 +1,3 @@
-import { LitElement, css, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
 
 @customElement("bottom-panel")
 export class BottomPanel extends LitElement {

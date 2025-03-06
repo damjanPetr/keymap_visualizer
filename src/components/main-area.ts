@@ -1,29 +1,45 @@
-import { LitElement, css, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
 import { Keywell, Thumbs } from "../types";
-import { parsedData } from "../fetch";
+import { changeLoadout, parsedData } from "../fetch";
 import "./keyboard-side";
 
-@customElement("main-area")
+("main-area")
 export class MainArea extends LitElement {
   static styles = css`
     :host {
+      padding-top: 2rem;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr auto 1fr;
       place-items: center center;
-      background: teal;
+      background: silver;
     }
   `;
+  @property() parsedDataP = parsedData;
 
-  @property() leftKeyboard = {
-    keys: parsedData["left"] as Keywell,
-    thumbs: parsedData["left-thumbs"] as Thumbs,
+  leftKeyboard = {
+    keys: this.parsedDataP["left"] as Keywell,
+    thumbs: this.parsedDataP["left-thumbs"] as Thumbs,
   };
 
-  @property() rightKeyboard = {
-    keys: parsedData["right"] as Keywell,
-    thumbs: parsedData["right-thumbs"] as Thumbs,
+  rightKeyboard = {
+    keys: this.parsedDataP["right"] as Keywell,
+    thumbs: this.parsedDataP["right-thumbs"] as Thumbs,
   };
+  async getTest() {
+    const newParsedData = await changeLoadout(this.value);
+
+    this.parsedDataP = newParsedData;
+    this.requestUpdate();
+
+    // this.leftKeyboard = {
+    //   keys: newParsedData["left"] as Keywell,
+    //   thumbs: newParsedData["left-thumbs"] as Thumbs,
+    // };
+
+    // this.rightKeyboard = {
+    //   keys: newParsedData["right"] as Keywell,
+    //   thumbs: newParsedData["right-thumbs"] as Thumbs,
+    // };
+  }
 
   render() {
     return html`
@@ -31,6 +47,10 @@ export class MainArea extends LitElement {
         .keys=${this.rightKeyboard.keys}
         .thumbKeys=${this.rightKeyboard.thumbs}
       ></keyboard-side>
+      <select @change="${this.getTest}" id="test" value="key">
+        <option value="key">Key</option>
+        <option value="zed">Zed</option>
+      </select>
       <keyboard-side
         .keys=${this.leftKeyboard.keys}
         .thumbKeys=${this.leftKeyboard.thumbs}

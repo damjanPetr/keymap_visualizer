@@ -1,7 +1,7 @@
 {
   "name": "keymap_visualizer",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "lit": "^3.2.1",
     "yaml": "^2.7.0"
   },
   "devDependencies": {

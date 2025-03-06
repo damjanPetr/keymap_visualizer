@@ -1,5 +1,3 @@
-import { LitElement, css, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
 
 @customElement("key-button")
 export class KeyButton extends LitElement {
@@ -11,7 +9,7 @@ export class KeyButton extends LitElement {
       width: 50px;
       height: 50px;
       border-radius: 0.5rem;
-      background: salmon;
+      background: beige;
       font-size: 1.5rem;
       border: 1px solid black;
 
@@ -24,7 +22,7 @@ export class KeyButton extends LitElement {
     }
     .key-hidden {
       opacity: 0;
-      transition: all 200ms ease-in-out;
+      transition: all 50ms ease-in-out;
       border-radius: 0.5rem;
       position: absolute;
       text-align: center;
@@ -32,9 +30,9 @@ export class KeyButton extends LitElement {
       left: -50%;
       width: 400%;
       height: 100%;
-      background: darkslateblue;
+      background: snow;
       padding: 1rem;
-      color: white;
+      color: navy;
       font-size: 1.5rem;
     }
   `;

@@ -1,5 +1,3 @@
-import { LitElement, css, html } from "lit";
-import { customElement, property } from "lit/decorators.js";
 import "./key-button";
 import type { Keywell, Thumbs } from "../types";
 
@@ -32,34 +30,34 @@ export class KeyboardSide extends LitElement {
     return html`
       <div class="1-row">
         ${this?.keys["1-row"].map((item) => {
-          return html`<key-button .value=${item.value} .key=${item.key}
+      return html`<key-button .value=${item.value} .key=${item.key}
             >${item.key}</key-button
           >`;
-        })}
+    })}
       </div>
 
       <div class="2-row">
         ${this?.keys["2-row"].map((item) => {
-          return html`<key-button .value=${item.value} .key=${item.key}
+      return html`<key-button .value=${item.value} .key=${item.key}
             >${item.value}</key-button
           >`;
-        })}
+    })}
       </div>
 
       <div class="3-row">
         ${this.keys["3-row"].map((item) => {
-          return html`<key-button .value=${item.value} .key=${item.key}
+      return html`<key-button .value=${item.value} .key=${item.key}
             >${item.value}</key-button
           >`;
-        })}
+    })}
       </div>
 
       <div class="4-row">
         ${this.keys["4-row"].map((item) => {
-          return html`<key-button .value=${item.value} .key=${item.key}
+      return html`<key-button .value=${item.value} .key=${item.key}
             >${item.value}</key-button
           >`;
-        })}
+    })}
       </div>
     `;
   }
