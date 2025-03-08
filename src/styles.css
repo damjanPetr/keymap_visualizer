@@ -9,6 +9,81 @@ header {
 }
 
 main {
-    background: cornsilk;
+    background: darkred;
     min-height: calc(100vh - 100px);
+}
+
+keyboard-side {
+    .rows {
+        >div {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 0.5rem
+        }
+    }
+
+    .thumbs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 50px 100px 50px 100px;
+        gap: 0.5rem;
+    }
+}
+
+
+main-area {
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    place-items: center center;
+    background: silver
+}
+
+key-button {
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 0.5rem;
+        background: beige;
+        font-size: 1.5rem;
+        border: 1px solid black;
+
+        &:hover {
+            position: relative;
+
+            .key-hidden {
+                opacity: 1;
+            }
+        }
+    }
+
+    .key-hidden {
+        opacity: 0;
+        transition: all 50ms ease-in-out;
+        border-radius: 0.5rem;
+        position: absolute;
+        text-align: center;
+        bottom: calc(100% + 1rem);
+        left: -50%;
+        width: 400%;
+        height: 100%;
+        background: snow;
+        padding: 1rem;
+        color: navy;
+        font-size: 1.5rem;
+    }
+
+}
+
+bottom-panel {
+    text-align: center;
+
+    footer {
+        background: lightcoral;
+    }
 }

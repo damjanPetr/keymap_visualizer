@@ -1,2 +1,5 @@
-export { MainArea } from "./main-area";
-export { BottomPanel } from "./bottom-panel";
+
+export * from "./my-router";
+export * from "./keyboard-side"
+export * from "./main-area";
+export * from "./bottom-panel";

@@ -1,2 +1,1 @@
-import "./components";
-// import "./utils/globalStyles";
+import "./components"

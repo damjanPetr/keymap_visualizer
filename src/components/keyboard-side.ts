@@ -1,86 +1,59 @@
 import "./key-button";
-import type { Keywell, Thumbs } from "../types";
+import type { Rows, Thumbs } from "../types";
+import { KeyButton } from "./key-button";
 
-@customElement("keyboard-side")
-export class KeyboardSide extends LitElement {
-  static styles = css`
-    .rows {
-       > div{
-            display: flex;
-            gap: 0.5rem;
-            width: 100%;
-            justify-content: space-between;
-            margin-bottom: 0.5rem
-        }
-    }
-
-    .thumbs {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 50px 100px 50px 100px;
-        gap: 0.5rem;
-    }
-    }
-  `;
-
-  @property() keys!: Keywell;
-  @property() thumbKeys!: Thumbs;
-
-  rows() {
-    return html`
-      <div class="1-row">
-        ${this?.keys["1-row"].map((item) => {
-      return html`<key-button .value=${item.value} .key=${item.key}
-            >${item.key}</key-button
-          >`;
-    })}
-      </div>
-
-      <div class="2-row">
-        ${this?.keys["2-row"].map((item) => {
-      return html`<key-button .value=${item.value} .key=${item.key}
-            >${item.value}</key-button
-          >`;
-    })}
-      </div>
-
-      <div class="3-row">
-        ${this.keys["3-row"].map((item) => {
-      return html`<key-button .value=${item.value} .key=${item.key}
-            >${item.value}</key-button
-          >`;
-    })}
-      </div>
-
-      <div class="4-row">
-        ${this.keys["4-row"].map((item) => {
-      return html`<key-button .value=${item.value} .key=${item.key}
-            >${item.value}</key-button
-          >`;
-    })}
-      </div>
-    `;
+export class KeyboardSide extends HTMLElement {
+  static getObservedAttributes() {
+    return ["keys", "thumbKeys"];
   }
 
-  thumbs() {
-    return html`<div>${this.thumbKeys["big-0"]}</div
-      <div>${this.thumbKeys["big-1"]}</div>
-      <div>${this.thumbKeys["top-0"]}</div>
-      <div>${this.thumbKeys["top-1"]}</div>
-      <div>${this.thumbKeys["side-0"]}</div>
-      <div>${this.thumbKeys["side-1"]}</div>`;
+  constructor() {
+    super()
   }
 
-  render() {
-    return html`
-      <div class="rows">${this.rows()}</div>
-      <div class="thumbs">${this.thumbs()}</div>
+
+  thumbKeys?: Thumbs
+  keys?: Rows
+  generateKb(row: Rows['1-row'] | undefined, node: Element | null) {
+    row.forEach((cellData) => {
+      const kb = document.createElement("key-button") as KeyButton
+      kb.key = String(cellData.key);
+      kb.value = String(cellData.value);
+      node.appendChild(kb)
+    })
+
+  }
+
+
+  connectedCallback() {
+    this.innerHTML =
+      `<div class="rows">
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+      </div>
+
+       <div class="thumbs">
+         <div>${this.thumbKeys?.["big-0"]}</div>
+         <div>${this.thumbKeys?.["big-1"]}</div>
+         <div>${this.thumbKeys?.["top-0"]}</div>
+         <div>${this.thumbKeys?.["top-1"]}</div>
+         <div>${this.thumbKeys?.["side-0"]}</div>
+         <div>${this.thumbKeys?.["side-1"]}</div>
+       </div>
     `;
+
+    const row1 = this.querySelector(".rows > .row:nth-child(1)");
+    const row2 = this.querySelector(".rows > .row:nth-child(2)");
+    const row3 = this.querySelector(".rows > .row:nth-child(3)");
+    const row4 = this.querySelector(".rows > .row:nth-child(4)");
+
+    this.generateKb(this.keys?.["1-row"], row1);
+    this.generateKb(this.keys?.["2-row"], row2);
+    this.generateKb(this.keys?.["3-row"], row3);
+    this.generateKb(this.keys?.["4-row"], row4)
   }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    "keyboard-side": KeyboardSide;
-  }
-}
+customElements.define("keyboard-side", KeyboardSide);
