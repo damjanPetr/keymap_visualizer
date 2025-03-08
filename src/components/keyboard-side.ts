@@ -14,12 +14,15 @@ export class KeyboardSide extends HTMLElement {
 
   thumbKeys?: Thumbs
   keys?: Rows
-  generateKb(row: Rows['1-row'] | undefined, node: Element | null) {
+  generateKb(row: Rows['1-row'], node: Element | null) {
     row.forEach((cellData) => {
       const kb = document.createElement("key-button") as KeyButton
       kb.key = String(cellData.key);
       kb.value = String(cellData.value);
-      node.appendChild(kb)
+
+      if (node) {
+        node.appendChild(kb)
+      }
     })
 
   }
@@ -49,10 +52,10 @@ export class KeyboardSide extends HTMLElement {
     const row3 = this.querySelector(".rows > .row:nth-child(3)");
     const row4 = this.querySelector(".rows > .row:nth-child(4)");
 
-    this.generateKb(this.keys?.["1-row"], row1);
-    this.generateKb(this.keys?.["2-row"], row2);
-    this.generateKb(this.keys?.["3-row"], row3);
-    this.generateKb(this.keys?.["4-row"], row4)
+    this.generateKb(this.keys?.["1-row"] ?? [], row1);
+    this.generateKb(this.keys?.["2-row"] ?? [], row2);
+    this.generateKb(this.keys?.["3-row"] ?? [], row3);
+    this.generateKb(this.keys?.["4-row"] ?? [], row4)
   }
 }
 

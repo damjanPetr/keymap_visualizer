@@ -4,6 +4,15 @@ import "./keyboard-side";
 import { KeyboardSide } from "./keyboard-side";
 
 export class MainArea extends HTMLElement {
+  static get template() {
+    const template = document.createElement("template")
+    template.innerHTML = `
+        <keyboard-side></keyboard-side>
+        <keyboard-side></keyboard-side>
+    `;
+    return template;
+  }
+
   constructor() {
     super()
   }
@@ -31,17 +40,17 @@ export class MainArea extends HTMLElement {
     await this.init()
     this.innerHTML = ""
 
-    const leftSide = document.createElement('keyboard-side') as KeyboardSide;
-    const rightSide = document.createElement('keyboard-side') as KeyboardSide;
+    const content = MainArea.template.content.cloneNode(true) as DocumentFragment;
+    this.append(content);
+
+    const leftSide = this.querySelector('keyboard-side') as KeyboardSide;
+    const rightSide = this.querySelector('keyboard-side') as KeyboardSide;
 
     leftSide.keys = this.leftKeyboard?.keys;
     leftSide.thumbKeys = this.leftKeyboard?.thumbs;
-    rightSide.keys = this.rightKeyboard?.keys;
-    rightSide.thumbKeys = this.rightKeyboard?.thumbs
 
-    this.appendChild(leftSide);
-    this.appendChild(leftSide);
-    this.appendChild(rightSide)
+    rightSide.keys = this.rightKeyboard?.keys;
+    rightSide.thumbKeys = this.rightKeyboard?.thumb
   }
 }
 customElements.define('main-area', MainArea)
