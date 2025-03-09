@@ -40,17 +40,21 @@ export class MainArea extends HTMLElement {
     await this.init()
     this.innerHTML = ""
 
-    const content = MainArea.template.content.cloneNode(true) as DocumentFragment;
+    const content = MainArea.template.content.cloneNode(true);
     this.append(content);
 
     const leftSide = this.querySelector('keyboard-side') as KeyboardSide;
     const rightSide = this.querySelector('keyboard-side') as KeyboardSide;
 
+
     leftSide.keys = this.leftKeyboard?.keys;
     leftSide.thumbKeys = this.leftKeyboard?.thumbs;
 
     rightSide.keys = this.rightKeyboard?.keys;
-    rightSide.thumbKeys = this.rightKeyboard?.thumb
+    rightSide.thumbKeys = this.rightKeyboard?.thumbs
+
+    console.log("%c ", 'background: blue', { this: this })
+
   }
 }
 customElements.define('main-area', MainArea)

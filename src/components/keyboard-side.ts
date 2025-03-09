@@ -11,7 +11,6 @@ export class KeyboardSide extends HTMLElement {
     super()
   }
 
-
   thumbKeys?: Thumbs
   keys?: Rows
   generateKb(row: Rows['1-row'], node: Element | null) {
@@ -51,11 +50,17 @@ export class KeyboardSide extends HTMLElement {
     const row2 = this.querySelector(".rows > .row:nth-child(2)");
     const row3 = this.querySelector(".rows > .row:nth-child(3)");
     const row4 = this.querySelector(".rows > .row:nth-child(4)");
+    console.log("%c uhotueo", 'background: pink', { row1, row2, row3, row4, meh: this.keys?.["1-row"] })
 
     this.generateKb(this.keys?.["1-row"] ?? [], row1);
     this.generateKb(this.keys?.["2-row"] ?? [], row2);
     this.generateKb(this.keys?.["3-row"] ?? [], row3);
     this.generateKb(this.keys?.["4-row"] ?? [], row4)
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    console.log("attributeChangedCallback", name, oldValue, newValue)
+    this.connectedCallback()
   }
 }
 
