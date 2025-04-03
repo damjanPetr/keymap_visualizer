@@ -3,16 +3,33 @@ import type { Rows, Thumbs } from "../types";
 import { KeyButton } from "./key-button";
 
 export class KeyboardSide extends HTMLElement {
-  static getObservedAttributes() {
-    return ["keys", "thumbKeys"];
-  }
+  static observedAttributes = ["keys", "thumbKeys"];
 
   constructor() {
     super()
   }
 
-  thumbKeys?: Thumbs
-  keys?: Rows
+    // Add private backing fields
+  private _keys?: Rows;
+  private _thumbKeys?: Thumbs;
+
+  set keys(value) {
+    this._keys = value;
+    this.connectedCallback();
+  }
+
+  get keys() {
+    return this._keys;
+  }
+
+  set thumbKeys(value) {
+    this._thumbKeys = value;
+    this.connectedCallback();
+  }
+
+  get thumbKeys() {
+    return this._thumbKeys;
+  }
   generateKb(row: Rows['1-row'], node: Element | null) {
     row.forEach((cellData) => {
       const kb = document.createElement("key-button") as KeyButton
@@ -56,11 +73,6 @@ export class KeyboardSide extends HTMLElement {
     this.generateKb(this.keys?.["2-row"] ?? [], row2);
     this.generateKb(this.keys?.["3-row"] ?? [], row3);
     this.generateKb(this.keys?.["4-row"] ?? [], row4)
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    console.log("attributeChangedCallback", name, oldValue, newValue)
-    this.connectedCallback()
   }
 }
 

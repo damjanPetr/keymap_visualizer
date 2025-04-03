@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -6,22 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Keybinding Layout Visualizer</title>
         <link rel="stylesheet" href="./src/styles.css" />
-        <script type="module"  src="./src/index.ts"></script>
+        <script defer type="module"  src="./src/index.ts"></script>
     </head>
     <body>
         <my-router>
-
         <header>
-            <h1>IDK something</h1>
+        <a href="/">IDK something</h1>
             <navigation>
                 <a href="test">Example</a>
             </navigation>
         </header>
+        <slot>
             <main>
                 <main-area></main-area>
                 <bottom-panel></bottom-panel>
             </main>
+        </slot>
         </my-router>
-
     </body>
 </html>
