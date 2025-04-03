@@ -1,4 +1,4 @@
-import { KeySide, LayoutData } from "../types";
+import {  LayoutData } from "../types";
 import { changeLoadout } from "../fetch";
 import "./keyboard-side";
 import { KeyboardSide } from "./keyboard-side";
@@ -8,6 +8,7 @@ export class MainArea extends HTMLElement {
     const template = document.createElement("template")
     template.innerHTML = `
         <keyboard-side></keyboard-side>
+        <div>mainTest</div>
         <keyboard-side></keyboard-side>
     `;
     return template;
@@ -18,42 +19,26 @@ export class MainArea extends HTMLElement {
   }
 
   mapData: LayoutData | null = null;
-
-  leftKeyboard: KeySide | null = null;
-  rightKeyboard: KeySide | null = null;
   async init() {
-    this.mapData = await changeLoadout('key')
 
-    this.leftKeyboard = {
-      keys: this.mapData["left"],
-      thumbs: this.mapData["left-thumbs"]
-    };
-
-    this.rightKeyboard = {
-      keys: this.mapData["right"],
-      thumbs: this.mapData["right-thumbs"]
-    };
+    return await changeLoadout('key')
   }
   async connectedCallback() {
+const mapData:LayoutData =     await this.init()
 
-    this.innerHTML = `<div>Loading...</div>`;
-    await this.init()
     this.innerHTML = ""
 
-    const content = MainArea.template.content.cloneNode(true);
-    this.append(content);
+    const template = MainArea.template.content
 
-    const leftSide = this.querySelector('keyboard-side') as KeyboardSide;
-    const rightSide = this.querySelector('keyboard-side') as KeyboardSide;
+    const leftSide = template.querySelector('keyboard-side:nth-of-type(1)') as KeyboardSide;
+    const rightSide = template.querySelector('keyboard-side:nth-of-type(2)') as KeyboardSide;
 
+    leftSide.keys = mapData.left;
+    leftSide.thumbKeys = mapData["left-thumbs"];
 
-    leftSide.keys = this.leftKeyboard?.keys;
-    leftSide.thumbKeys = this.leftKeyboard?.thumbs;
-
-    rightSide.keys = this.rightKeyboard?.keys;
-    rightSide.thumbKeys = this.rightKeyboard?.thumbs
-
-    console.log("%c ", 'background: blue', { this: this })
+    rightSide.keys = mapData.right;
+    rightSide.thumbKeys = mapData["right-thumbs"];
+     this.append(template);
 
   }
 }
