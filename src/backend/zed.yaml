@@ -155,24 +155,24 @@ right:
       desc: ""
 
 left-thumbs:
-  - big-0:
-      value: 97
-      desc: ""
-  - big-1:
-      value: 98
-      desc: ""
-  - top-0:
-      value: 91
-      desc: ""
-  - top-1:
-      value: 17
-      desc: ""
-  - side-0:
-      value: 18
-      desc: ""
-  - side-1:
-      value: 16
-      desc: ""
+  big-0:
+    value: 97
+    desc: ""
+  big-1:
+    value: 98
+    desc: ""
+  top-0:
+    value: 91
+    desc: ""
+  top-1:
+    value: 17
+    desc: ""
+  side-0:
+    value: 18
+    desc: ""
+  side-1:
+    value: 16
+    desc: ""
 
 right-thumbs:
   big-0:

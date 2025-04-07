@@ -9,7 +9,6 @@ export class KeyboardSide extends HTMLElement {
     super()
   }
 
-    // Add private backing fields
   private _keys?: Rows;
   private _thumbKeys?: Thumbs;
 
@@ -30,7 +29,7 @@ export class KeyboardSide extends HTMLElement {
   get thumbKeys() {
     return this._thumbKeys;
   }
-  generateKb(row: Rows['1-row'], node: Element | null) {
+  generateKeyButton(row: Rows['1-row'], node: Element | null) {
     row.forEach((cellData) => {
       const kb = document.createElement("key-button") as KeyButton
       kb.key = String(cellData.key);
@@ -44,6 +43,8 @@ export class KeyboardSide extends HTMLElement {
   }
 
 
+  side: "left" | "right" |undefined
+
   connectedCallback() {
     this.innerHTML =
       `<div class="rows">
@@ -54,12 +55,12 @@ export class KeyboardSide extends HTMLElement {
       </div>
 
        <div class="thumbs">
-         <div>${this.thumbKeys?.["big-0"]}</div>
-         <div>${this.thumbKeys?.["big-1"]}</div>
-         <div>${this.thumbKeys?.["top-0"]}</div>
-         <div>${this.thumbKeys?.["top-1"]}</div>
-         <div>${this.thumbKeys?.["side-0"]}</div>
-         <div>${this.thumbKeys?.["side-1"]}</div>
+          <key-button key=${this?.thumbKeys?.["big-0"].key} value=${this?.thumbKeys?.["big-0"].desc} /></key-button>
+          <key-button key=${this?.thumbKeys?.["big-1"].key} value=${this?.thumbKeys?.["big-1"].desc} /></key-button>
+          <key-button key=${this?.thumbKeys?.["top-0"].key} value=${this?.thumbKeys?.["top-0"].desc} /></key-button>
+          <key-button key=${this?.thumbKeys?.["top-1"].key} value=${this?.thumbKeys?.["top-1"].desc} /></key-button>
+          <key-button key=${this?.thumbKeys?.["side-0"].key} value=${this?.thumbKeys?.["side-0"].desc} /></key-button>
+          <key-button key=${this?.thumbKeys?.["side-1"].key} value=${this?.thumbKeys?.["side-1"].desc} /></key-button>
        </div>
     `;
 
@@ -67,12 +68,11 @@ export class KeyboardSide extends HTMLElement {
     const row2 = this.querySelector(".rows > .row:nth-child(2)");
     const row3 = this.querySelector(".rows > .row:nth-child(3)");
     const row4 = this.querySelector(".rows > .row:nth-child(4)");
-    console.log("%c uhotueo", 'background: pink', { row1, row2, row3, row4, meh: this.keys?.["1-row"] })
 
-    this.generateKb(this.keys?.["1-row"] ?? [], row1);
-    this.generateKb(this.keys?.["2-row"] ?? [], row2);
-    this.generateKb(this.keys?.["3-row"] ?? [], row3);
-    this.generateKb(this.keys?.["4-row"] ?? [], row4)
+    this.generateKeyButton(this.keys?.["1-row"] ?? [], row1);
+    this.generateKeyButton(this.keys?.["2-row"] ?? [], row2);
+    this.generateKeyButton(this.keys?.["3-row"] ?? [], row3);
+    this.generateKeyButton(this.keys?.["4-row"] ?? [], row4)
   }
 }
 
