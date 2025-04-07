@@ -1,123 +1,195 @@
 left:
   1-row:
-    - key: 0
-      value: avtobus
-    - key: 1
-      value: makarena
-    - key: 2
-      value: aeuauo
-    - key: 3
-      value: zzzzz
-    - key: 4
-      value: aaaa
-    - key: 5
-      value: mmmm
+    - key: "`"
+      value: 192
+      desc: ""
+    - key: "1"
+      value: 192
+      desc: ""
+    - key: "2"
+      value: 49
+      desc: ""
+    - key: "3"
+      value: 50
+      desc: ""
+    - key: "4"
+      value: 51
+      desc: ""
+    - key: "5"
+      value: 52
+      desc: ""
   2-row:
-    - key: 0
+    - key: "\\"
       value: 220
-    - key: 1
+      desc: ""
+    - key: "'"
       value: 188
-    - key: 2
+      desc: ""
+    - key: ","
       value: 190
-    - key: 3
+      desc: ""
+    - key: "."
       value: 80
-    - key: 4
+      desc: ""
+    - key: "p"
       value: 89
-    - key: 5
+      desc: ""
+    - key: "y"
       value: 89
+      desc: ""
   3-row:
-    - key: 0
+    - key: "DEL"
       value: 89
-    - key: 1
+      desc: ""
+    - key: "a"
       value: 79
-    - key: 2
+      desc: ""
+    - key: "o"
       value: 69
-    - key: 3
+      desc: ""
+    - key: "e"
       value: 85
-    - key: 4
+      desc: ""
+    - key: "u"
       value: 73
-    - key: 5
+      desc: ""
+    - key: "i"
       value: 81
+      desc: ""
   4-row:
-    - key: 0
+    - key: "L-SHIFT"
       value: 891
-    - key: 1
+      desc: ""
+    - key: ";"
       value: 186
-    - key: 2
+      desc: ""
+    - key: "q"
       value: 81
-    - key: 3
+      desc: ""
+    - key: "j"
       value: 74
-    - key: 4
+      desc: ""
+    - key: "k"
       value: 75
-    - key: 5
-      value: 88
+      desc: ""
+    - key: "x"
+      value: 76
+      desc: ""
 
 right:
   1-row:
-    - key: 0
+    - key: "6"
       value: 53
-    - key: 1
+      desc: ""
+    - key: "7"
       value: 54
-    - key: 2
+      desc: ""
+    - key: "8"
       value: 55
-    - key: 3
+      desc: ""
+    - key: "9"
       value: 56
-    - key: 4
+      desc: ""
+    - key: "0"
       value: 57
-    - key: 5
+      desc: ""
+    - key: "="
       value: 187
+      desc: ""
   2-row:
-    - key: 0
+    - key: "f"
       value: 70
-    - key: 1
+      desc: ""
+    - key: "g"
       value: 67
-    - key: 2
+      desc: ""
+    - key: "c"
       value: 82
-    - key: 3
+      desc: ""
+    - key: "r"
       value: 76
-    - key: 4
+      desc: ""
+    - key: "l"
       value: 191
-    - key: 5
+      desc: ""
+    - key: "/"
       value: 189
+      desc: ""
   3-row:
-    - key: 0
+    - key: "d"
       value: 68
-    - key: 1
+      desc: ""
+    - key: "h"
       value: 72
-    - key: 2
+      desc: ""
+    - key: "t"
       value: 84
-    - key: 3
+      desc: ""
+    - key: "n"
       value: 78
-    - key: 4
+      desc: ""
+    - key: "s"
       value: 83
-    - key: 5
+      desc: ""
+    - key: "-"
       value: 189
+      desc: ""
   4-row:
-    - key: 0
+    - key: "b"
       value: 66
-    - key: 1
+      desc: ""
+    - key: "m"
       value: 77
-    - key: 2
+      desc: ""
+    - key: "w"
       value: 87
-    - key: 3
+      desc: ""
+    - key: "v"
       value: 86
-    - key: 4
+      desc: ""
+    - key: "z"
       value: 90
-    - key: 5
+      desc: ""
+    - key: "R-shift"
       value: 98
+      desc: ""
 
 left-thumbs:
-  big-0: zzzz
-  big-1: nueot
-  top-0: zzz
-  top-1: ueoatn
-  side-0: uhaoet
-  side-1: uheaton
+  - big-0:
+      value: 97
+      desc: ""
+  - big-1:
+      value: 98
+      desc: ""
+  - top-0:
+      value: 91
+      desc: ""
+  - top-1:
+      value: 17
+      desc: ""
+  - side-0:
+      value: 18
+      desc: ""
+  - side-1:
+      value: 16
+      desc: ""
 
 right-thumbs:
-  big-0: 27
-  big-1: 8
-  top-0: 91
-  top-1: 17
-  side-0: 18
-  side-1: 16
+  big-0:
+    value: 99
+    desc: ""
+  big-1:
+    value: 98
+    desc: ""
+  top-0:
+    value: 91
+    desc: ""
+  top-1:
+    value: 17
+    desc: ""
+  side-0:
+    value: 18
+    desc: ""
+  side-1:
+    value: 16
+    desc: ""
