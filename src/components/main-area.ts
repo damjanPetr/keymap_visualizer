@@ -1,7 +1,7 @@
 import type { LayoutData } from "../types";
 import { changeLoadout } from "../fetch";
-import "./keyboard-side";
 import { KeyboardSide } from "./keyboard-side";
+import "./map-context"
 
 export class MainArea extends HTMLElement {
   constructor() {
@@ -15,13 +15,17 @@ export class MainArea extends HTMLElement {
   }
   async connectedCallback() {
     this.innerHTML = `
-          <keyboard-side side="left"></keyboard-side>
-              <select>
-                <option value="key">Key</option>
-                <option value="zed">Zed</option>
-              </select>
-          <keyboard-side side="right"></keyboard-side>
-          `
+      <map-context></map-context>
+      <div class="keyboards-container">
+
+            <keyboard-side side="left"></keyboard-side>
+               <select>
+                 <option value="key">Key</option>
+                 <option value="zed">Zed</option>
+               </select>
+           <keyboard-side side="right"></keyboard-side>
+      </div>
+      `
 
     const mapData: LayoutData = await this.init();
     console.log( "%c mapData",'background: plum',mapData)
@@ -38,6 +42,10 @@ export class MainArea extends HTMLElement {
   }
 
   applyMapData(data: LayoutData) {
+    const context =  this.querySelector(".context")
+
+
+
     const leftSide = this.querySelector('keyboard-side:nth-of-type(1)') as KeyboardSide;
     const rightSide = this.querySelector('keyboard-side:nth-of-type(2)') as KeyboardSide;
 

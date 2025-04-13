@@ -1,4 +1,3 @@
-
 export class KeyButton extends HTMLElement {
   static get observedAttributes() {
     return ['value', 'key'];
