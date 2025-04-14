@@ -53,14 +53,12 @@ export class MainArea extends HTMLElement {
 
     if (leftSide) {
       leftSide.keyRows = layout.left;
-      // leftSide.keys = data.left;
-      // leftSide.thumbKeys = data["left-thumbs"];
+      leftSide.keyCells = keyData.left;
     }
 
     if (rightSide) {
       rightSide.keyRows = layout.right;
-      // rightSide.keys = data.right;
-      // rightSide.thumbKeys = data["right-thumbs"];
+      rightSide.keyCells = keyData.right;
     }
   }
 }

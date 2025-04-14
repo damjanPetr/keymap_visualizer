@@ -1,207 +1,185 @@
 left:
-  1-row:
-    - key: "`"
-      value: 192
-      desc: ""
-    - key: "1"
-      value: 192
-      desc: ""
-    - key: "2"
-      value: 49
-      desc: ""
-    - key: "3"
-      value: 50
-      desc: ""
-    - key: "4"
-      value: 51
-      desc: ""
-    - key: "5"
-      value: 52
-      desc: ""
-  2-row:
-    - key: "\\"
-      value: 220
-      desc: ""
-    - key: "'"
-      value: 188
-      desc: ""
-    - key: ","
-      value: 190
-      desc: ""
-    - key: "."
-      value: 80
-      desc: ""
-    - key: "p"
-      value: 89
-      desc: ""
-    - key: "y"
-      value: 89
-      desc: ""
-  3-row:
-    - key: "DEL"
-      value: 89
-      desc: ""
-    - key: "a"
-      value: 79
-      desc: ""
-    - key: "o"
-      value: 69
-      desc: ""
-    - key: "e"
-      value: 85
-      desc: ""
-    - key: "u"
-      value: 73
-      desc: ""
-    - key: "i"
-      value: 81
-      desc: ""
-  4-row:
-    - key: "L-SHIFT"
-      value: 891
-      desc: ""
-    - key: ";"
-      value: 186
-      desc: ""
-    - key: "q"
-      value: 81
-      desc: ""
-    - key: "j"
-      value: 74
-      desc: ""
-    - key: "k"
-      value: 75
-      desc: ""
-    - key: "x"
-      value: 76
-      desc: ""
+  - key: "`"
+    value: 192
+    desc: ""
+  - key: "1"
+    value: 192
+    desc: ""
+  - key: "2"
+    value: 49
+    desc: ""
+  - key: "3"
+    value: 50
+    desc: ""
+  - key: "4"
+    value: 51
+    desc: ""
+  - key: "5"
+    value: 52
+    desc: ""
+  - key: "\\"
+    value: 220
+    desc: ""
+  - key: "'"
+    value: 188
+    desc: ""
+  - key: ","
+    value: 190
+    desc: ""
+  - key: "."
+    value: 80
+    desc: ""
+  - key: "p"
+    value: 89
+    desc: ""
+  - key: "y"
+    value: 89
+    desc: ""
+  - key: "DEL"
+    value: 89
+    desc: ""
+  - key: "a"
+    value: 79
+    desc: ""
+  - key: "o"
+    value: 69
+    desc: ""
+  - key: "e"
+    value: 85
+    desc: ""
+  - key: "u"
+    value: 73
+    desc: ""
+  - key: "i"
+    value: 81
+    desc: ""
+  - key: "L-SHIFT"
+    value: 891
+    desc: ""
+  - key: ";"
+    value: 186
+    desc: ""
+  - key: "q"
+    value: 81
+    desc: ""
+  - key: "j"
+    value: 74
+    desc: ""
+  - key: "k"
+    value: 75
+    desc: ""
+  - key: "x"
+    value: 76
+    desc: ""
 
 right:
-  1-row:
-    - key: "6"
-      value: 53
-      desc: ""
-    - key: "7"
-      value: 54
-      desc: ""
-    - key: "8"
-      value: 55
-      desc: ""
-    - key: "9"
-      value: 56
-      desc: ""
-    - key: "0"
-      value: 57
-      desc: ""
-    - key: "="
-      value: 187
-      desc: ""
-  2-row:
-    - key: "f"
-      value: 70
-      desc: ""
-    - key: "g"
-      value: 67
-      desc: ""
-    - key: "c"
-      value: 82
-      desc: ""
-    - key: "r"
-      value: 76
-      desc: ""
-    - key: "l"
-      value: 191
-      desc: ""
-    - key: "/"
-      value: 189
-      desc: ""
-  3-row:
-    - key: "d"
-      value: 68
-      desc: ""
-    - key: "h"
-      value: 72
-      desc: ""
-    - key: "t"
-      value: 84
-      desc: ""
-    - key: "n"
-      value: 78
-      desc: ""
-    - key: "s"
-      value: 83
-      desc: ""
-    - key: "-"
-      value: 189
-      desc: ""
-  4-row:
-    - key: "b"
-      value: 66
-      desc: ""
-    - key: "m"
-      value: 77
-      desc: ""
-    - key: "w"
-      value: 87
-      desc: ""
-    - key: "v"
-      value: 86
-      desc: ""
-    - key: "z"
-      value: 90
-      desc: ""
-    - key: "R-shift"
-      value: 98
-      desc: ""
+  - key: "6"
+    value: 53
+    desc: ""
+  - key: "7"
+    value: 54
+    desc: ""
+  - key: "8"
+    value: 55
+    desc: ""
+  - key: "9"
+    value: 56
+    desc: ""
+  - key: "0"
+    value: 57
+    desc: ""
+  - key: "="
+    value: 187
+    desc: ""
+  - key: "f"
+    value: 70
+    desc: ""
+  - key: "g"
+    value: 67
+    desc: ""
+  - key: "c"
+    value: 82
+    desc: ""
+  - key: "r"
+    value: 76
+    desc: ""
+  - key: "l"
+    value: 191
+    desc: ""
+  - key: "/"
+    value: 189
+    desc: ""
+  - key: "d"
+    value: 68
+    desc: ""
+  - key: "h"
+    value: 72
+    desc: ""
+  - key: "t"
+    value: 84
+    desc: ""
+  - key: "n"
+    value: 78
+    desc: ""
+  - key: "s"
+    value: 83
+    desc: ""
+  - key: "-"
+    value: 189
+    desc: ""
+  - key: "b"
+    value: 66
+    desc: ""
+  - key: "m"
+    value: 77
+    desc: ""
+  - key: "w"
+    value: 87
+    desc: ""
+  - key: "v"
+    value: 86
+    desc: ""
+  - key: "z"
+    value: 90
+    desc: ""
+  - key: "R-shift"
+    value: 98
+    desc: ""
 
-left-thumbs:
-  big-0:
+  - key: "ESC"
     value: 97
-    key: "ESC"
     desc: ""
-  big-1:
+  - key: "BS"
     value: 98
-    key: "BS"
     desc: ""
-  top-0:
+  - key: "L-WIN"
     value: 91
-    key: "L-WIN"
     desc: ""
-  top-1:
+  - key: "L-CTRL"
     value: 17
-    key: "L-CTRL"
     desc: ""
-  side-0:
-    value:
-    key: "L-ALT"
+  - key: "L-ALT"
+    value: 18
     desc: ""
-  side-1:
+  - key: "L-SHIFT"
     value: 16
-    key: "L-SHIFT"
     desc: ""
 
-right-thumbs:
-  big-0:
+  - key: "Enter"
     value: 99
-    key: "Enter"
     desc: ""
-  big-1:
+  - key: "Backspace"
     value: 98
-    key: "Backspace"
     desc: ""
-  top-0:
+  - key: "space"
     value: 91
-    key: "space"
     desc: ""
-  top-1:
+  - key: "Tab"
     value: 17
-    key: "Tab"
     desc: ""
-  side-0:
+  - key: "Shift"
     value: 18
-    key: "Shift"
     desc: ""
-  side-1:
+  - key: "Ctrl"
     value: 16
-    key: "Ctrl"
     desc: ""
