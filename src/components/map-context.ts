@@ -1,9 +1,20 @@
-class mapContext extends HTMLElement {
+export class MapContext extends HTMLElement {
   static getObservedAttributes() {
     return []
   }
   constructor() {
     super()
+  }
+
+
+
+  _data: any[] = [];
+  get data() {
+    return this._data;
+  }
+
+  set data(value) {
+    this._data = value;
   }
 
   adoptedCallback(){
@@ -22,4 +33,4 @@ class mapContext extends HTMLElement {
   }
 }
 
-customElements.define('map-context', mapContext)
+customElements.define('map-context', MapContext)

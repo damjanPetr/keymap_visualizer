@@ -1,17 +1,20 @@
-import type { LayoutData } from "../types";
-import { changeLoadout } from "../fetch";
+import type { KeysideData } from "../types";
+import { changeLoadout, fetchKeyLayout } from "../fetch";
 import { KeyboardSide } from "./keyboard-side";
 import "./map-context"
+import { MapContext } from "./map-context";
 
 export class MainArea extends HTMLElement {
   constructor() {
     super()
   }
 
-  mapData: LayoutData | null = null;
+  mapData: KeysideData | null = null;
 
   async init() {
-    return await changeLoadout('key')
+    const layout = await fetchKeyLayout('main')
+    const keyData =  await changeLoadout('key')
+    return {layout,keyData}
   }
   async connectedCallback() {
     this.innerHTML = `
@@ -27,8 +30,8 @@ export class MainArea extends HTMLElement {
       </div>
       `
 
-    const mapData: LayoutData = await this.init();
-    console.log( "%c mapData",'background: plum',mapData)
+    const {layout,keyData} = await this.init();
+    console.log( "%c mapData",'background: plum',{layout,keyData})
     const select = this.querySelector('select');
     select?.addEventListener("change", async (e) => {
       if (e.target instanceof HTMLSelectElement) {
@@ -37,26 +40,27 @@ export class MainArea extends HTMLElement {
         this.applyMapData(newData);
       }
     });
-
-    this.applyMapData(mapData);
+    this.applyMapData({layout,keyData});
   }
 
-  applyMapData(data: LayoutData) {
-    const context =  this.querySelector(".context")
 
-
+  applyMapData({layout,keyData}:ReturnType<typeof this.init>) {
+    const context =  this.querySelector("map-context") as MapContext;
+    context.data = keyData.context
 
     const leftSide = this.querySelector('keyboard-side:nth-of-type(1)') as KeyboardSide;
     const rightSide = this.querySelector('keyboard-side:nth-of-type(2)') as KeyboardSide;
 
     if (leftSide) {
-      leftSide.keys = data.left;
-      leftSide.thumbKeys = data["left-thumbs"];
+      leftSide.keyRows = layout.left;
+      // leftSide.keys = data.left;
+      // leftSide.thumbKeys = data["left-thumbs"];
     }
 
     if (rightSide) {
-      rightSide.keys = data.right;
-      rightSide.thumbKeys = data["right-thumbs"];
+      rightSide.keyRows = layout.right;
+      // rightSide.keys = data.right;
+      // rightSide.thumbKeys = data["right-thumbs"];
     }
   }
 }
