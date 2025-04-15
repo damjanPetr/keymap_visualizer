@@ -1,3 +1,5 @@
+import { KeysideData } from "../types";
+
 export class MapContext extends HTMLElement {
   static getObservedAttributes() {
     return []
@@ -8,7 +10,7 @@ export class MapContext extends HTMLElement {
 
 
 
-  _data: any[] = [];
+  _data: KeysideData['context'] = {};
   get data() {
     return this._data;
   }
@@ -21,10 +23,11 @@ export class MapContext extends HTMLElement {
   }
 
   connectedCallback(){
+    console.log( "%c ",'background: hotpink',Object.keys(this._data))
     this.innerHTML = `
       <div>
         <h1>Map Context</h1>
-        <p>This is a custom element that provides a map context.</p>
+        <p>${Object.keys(this.data).map(item =>`<button>${item}</button>`)}</p>
       </div>
     `;
   }

@@ -182,5 +182,17 @@ right:
 
 context:
   SPACE:
-    left: 1
+    left:
+      - key: "q"
+        value: "TEST"
+        desc: ""
+      - key: "j"
+        value: "TEST"
+        desc: ""
+      - key: "k"
+        value: "TEST"
+        desc: ""
+      - key: "x"
+        value: "TEST"
+        desc: ""
     right: 1

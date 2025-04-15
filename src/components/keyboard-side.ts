@@ -1,6 +1,5 @@
 import "./key-button";
-import type { KeySide, KeysideData, LayoutData, Rows, Thumbs } from "../types";
-import { KeyButton } from "./key-button";
+import type {  KeysideData, LayoutData,  } from "../types";
 
 export class KeyboardSide extends HTMLElement {
   constructor() {
@@ -73,11 +72,10 @@ export class KeyboardSide extends HTMLElement {
     console.log( "%c this?._keyCells",'background: blue',this?._keyCells)
     for (let {desc, value,key} of this?._keyCells) {
       const keyButton = this.querySelector(`key-button[key="${key}"]`)
-     console.log( "%c button",'background: golden',keyButton)
-     // if(keyButton){
+     if(keyButton){
        keyButton?.setAttribute('value', value);
        keyButton?.setAttribute('desc', desc);
-     // }
+     }
           }
       }
 }

@@ -10,9 +10,13 @@ interface Cell {
 }
 
 
+interface SideData {
 
-export interface KeysideData {
   'left': Cell[];
-  'right': Cell[];
-  'context': KeysideData[];
+   'right': Cell[];
+}
+
+export interface KeysideData extends SideData {
+
+  'context': Record<string, SideData>;
 }
