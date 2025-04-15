@@ -1,5 +1,5 @@
 import { parse } from "yaml";
-import { KeysideData } from "./types";
+import { KeysideData, LayoutData } from "./types";
 
 async function changeLoadout(layout: string): Promise<KeysideData> {
   const response = await fetch(`src/backend/${layout}.yaml`);
@@ -7,7 +7,7 @@ async function changeLoadout(layout: string): Promise<KeysideData> {
   return parse(data);
 }
 
-async function fetchKeyLayout(side: string): Promise<KeysideData> {
+async function fetchKeyLayout(side: string): Promise<LayoutData> {
   const response = await fetch(`src/backend/layouts/${side}.yaml`);
   const data = await response.text();
   return parse(data);

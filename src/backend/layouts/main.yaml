@@ -3,11 +3,11 @@ left:
   - ["\\", "'", ",", ".", "p", "y"]
   - ["DEL", "a", "o", "e", "u", "i"]
   - ["L-SHIFT", ";", "q", "j", "k", "x"]
-  - ["ESC", "BS", "WIN", "ALT", "L-SHIFT"]
+  - ["ESC", "BS", "L-WIN", "L-ALT", "L-CTRL", "L-SHIFT"]
 
 right:
   - ["6", "7", "8", "9", "0", "="]
   - ["f", "g", "c", "r", "l", "/"]
   - ["d", "h", "t", "n", "s", "-"]
   - ["b", "m", "w", "v", "z", "R-SHIFT"]
-  - ["R-SHIFT", "ALT", "TAB", "ENTER", "SPACE"]
+  - ["R-SHIFT", "CAPS", "LAY 1", "TAB", "ENTER", "SPACE"]

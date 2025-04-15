@@ -72,6 +72,25 @@ left:
     value: 76
     desc: ""
 
+  - key: "ESC"
+    value: 97
+    desc: ""
+  - key: "BS"
+    value: 98
+    desc: ""
+  - key: "L-WIN"
+    value: 91
+    desc: ""
+  - key: "L-CTRL"
+    value: 17
+    desc: ""
+  - key: "L-ALT"
+    value: 18
+    desc: ""
+  - key: "L-SHIFT"
+    value: 16
+    desc: ""
+
 right:
   - key: "6"
     value: 53
@@ -142,44 +161,26 @@ right:
   - key: "z"
     value: 90
     desc: ""
-  - key: "R-shift"
-    value: 98
-    desc: ""
-
-  - key: "ESC"
-    value: 97
-    desc: ""
-  - key: "BS"
-    value: 98
-    desc: ""
-  - key: "L-WIN"
-    value: 91
-    desc: ""
-  - key: "L-CTRL"
-    value: 17
-    desc: ""
-  - key: "L-ALT"
-    value: 18
-    desc: ""
-  - key: "L-SHIFT"
-    value: 16
-    desc: ""
-
-  - key: "Enter"
+  - key: "R-SHIFT"
     value: 99
     desc: ""
-  - key: "Backspace"
+  - key: "CAPS"
     value: 98
     desc: ""
-  - key: "space"
+  - key: "LAY 1"
     value: 91
     desc: ""
-  - key: "Tab"
+  - key: "TAB"
     value: 17
     desc: ""
-  - key: "Shift"
+  - key: "ENTER"
     value: 18
     desc: ""
-  - key: "Ctrl"
+  - key: "SPACE"
     value: 16
     desc: ""
+
+context:
+  SPACE:
+    left: 1
+    right: 1

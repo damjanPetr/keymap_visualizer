@@ -46,10 +46,24 @@ export class KeyboardSide extends HTMLElement {
   side: "left" | "right" |undefined
 
   connectedCallback() {
+
+    const testArray = this.keyRows?.map((item)=>{
+      const selected = this.keyCells?.find(cell => item === cell.key)
+      return {
+        ...selected,
+        ...item
+      }
+    })
+
+
     this.innerHTML =
       `<div class="rows">
     ${this._keyRows?.map((row) =>  `<div>
-       ${row.map((cellData) => `<key-button key="${cellData}"></key-button>`)}
+       ${row.map((cellData) => {
+        const selected = this.keyCells?.find(cell => cell.key === cellData)
+        const button = `<key-button value="${selected?.value}" desc="${selected?.desc}" key="${selected?.key}"></key-button>`
+        return button;
+       }).join("")}
           </div>`)}
       </div>
        <div class="thumbs">

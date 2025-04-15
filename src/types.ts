@@ -14,5 +14,5 @@ interface Cell {
 export interface KeysideData {
   'left': Cell[];
   'right': Cell[];
-  'context': KeysideData;
+  'context': KeysideData[];
 }

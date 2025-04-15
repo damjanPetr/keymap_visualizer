@@ -1,4 +1,4 @@
-import type { KeysideData } from "../types";
+import type { KeysideData, LayoutData } from "../types";
 import { changeLoadout, fetchKeyLayout } from "../fetch";
 import { KeyboardSide } from "./keyboard-side";
 import "./map-context"
@@ -20,7 +20,6 @@ export class MainArea extends HTMLElement {
     this.innerHTML = `
       <map-context></map-context>
       <div class="keyboards-container">
-
             <keyboard-side side="left"></keyboard-side>
                <select>
                  <option value="key">Key</option>
@@ -37,14 +36,14 @@ export class MainArea extends HTMLElement {
       if (e.target instanceof HTMLSelectElement) {
         const value = e.target.value;
         const newData = await changeLoadout(value);
-        this.applyMapData(newData);
+        this.applyMapData({ layout, keyData: newData });
       }
     });
     this.applyMapData({layout,keyData});
   }
 
 
-  applyMapData({layout,keyData}:ReturnType<typeof this.init>) {
+  applyMapData({layout,keyData}:{layout:LayoutData,keyData:KeysideData}) {
     const context =  this.querySelector("map-context") as MapContext;
     context.data = keyData.context
 
