@@ -1,9 +1,7 @@
 import { KeysideData } from "../types";
 
 export class MapContext extends HTMLElement {
-  static getObservedAttributes() {
-    return []
-  }
+
   constructor() {
     super()
   }
@@ -17,23 +15,24 @@ export class MapContext extends HTMLElement {
 
   set data(value) {
     this._data = value;
+    this.connectedCallback()
   }
 
   adoptedCallback(){
   }
 
   connectedCallback(){
-    console.log( "%c ",'background: hotpink',Object.keys(this._data))
+    console.log( "%c ",'background: yellow',Object.keys(this._data))
     this.innerHTML = `
       <div>
         <h1>Map Context</h1>
-        <p>${Object.keys(this.data).map(item =>`<button>${item}</button>`)}</p>
+        <p>${Object.keys(this?._data).map(item =>`<button>${item}</button>`)}</p>
       </div>
     `;
   }
 
-  attributeChangedCallback(){
-  }
+
+
 }
 
 customElements.define('map-context', MapContext)

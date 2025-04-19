@@ -63,13 +63,13 @@ export class KeyboardSide extends HTMLElement {
         const button = `<key-button value="${selected?.value}" desc="${selected?.desc}" key="${selected?.key}"></key-button>`
         return button;
        }).join("")}
-          </div>`)}
+          </div>`).join("")}
       </div>
        <div class="thumbs">
        </div>
     `;
 
-    console.log( "%c this?._keyCells",'background: blue',this?._keyCells)
+    // console.log( "%c this?._keyCells",'background: blue',this?._keyCells)
     for (let {desc, value,key} of this?._keyCells) {
       const keyButton = this.querySelector(`key-button[key="${key}"]`)
      if(keyButton){
