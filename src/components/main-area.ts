@@ -1,23 +1,26 @@
 import type { KeysideData, LayoutData } from "../types";
 import { changeLoadout, fetchKeyLayout } from "../fetch";
-import { KeyboardSide } from "./keyboard-side";
-import "./map-context"
-import { MapContext } from "./map-context";
+import type { KeyboardSide } from "./keyboard-side";
+import "./map-context";
+import type { MapContext } from "./map-context";
+import { store } from "../store/keyStore";
 
 export class MainArea extends HTMLElement {
-  constructor() {
-    super()
-  }
+	constructor() {
+		super();
+	}
 
-  mapData: KeysideData | null = null;
+	mapData: KeysideData | null = null;
 
-  async init() {
-    const layout = await fetchKeyLayout('main')
-    const keyData =  await changeLoadout('key')
-    return {layout,keyData}
-  }
-  async connectedCallback() {
-    this.innerHTML = `
+	async init() {
+		const layout = await fetchKeyLayout("main");
+		const keyData = await changeLoadout("key");
+
+		store.subscribe(this.applyMapData);
+		return { layout, keyData };
+	}
+	async connectedCallback() {
+		this.innerHTML = `
       <map-context></map-context>
       <div class="keyboards-container">
             <keyboard-side side="left"></keyboard-side>
@@ -27,39 +30,45 @@ export class MainArea extends HTMLElement {
                </select>
            <keyboard-side side="right"></keyboard-side>
       </div>
-      `
+      `;
 
-    const {layout,keyData} = await this.init();
-    console.log( "%c mapData",'background: plum',{layout,keyData})
-    const select = this.querySelector('select');
-    select?.addEventListener("change", async (e) => {
-      if (e.target instanceof HTMLSelectElement) {
-        const value = e.target.value;
-        const newData = await changeLoadout(value);
-        this.applyMapData({ layout, keyData: newData });
-      }
-    });
-    this.applyMapData({layout,keyData});
-  }
+		const { layout, keyData } = await this.init();
+		console.log("%c mapData", "background: plum", { layout, keyData });
+		const select = this.querySelector("select");
+		select?.addEventListener("change", async (e) => {
+			if (e.target instanceof HTMLSelectElement) {
+				const value = e.target.value;
+				const newData = await changeLoadout(value);
+				this.applyMapData({ layout, keyData: newData });
+			}
+		});
+		this.applyMapData({ layout, keyData });
+	}
 
+	applyMapData({
+		layout,
+		keyData,
+	}: { layout: LayoutData; keyData: KeysideData }) {
+		const context = this.querySelector("map-context") as MapContext;
+		context.data = keyData.context;
 
-  applyMapData({layout,keyData}:{layout:LayoutData,keyData:KeysideData}) {
-    const context =  this.querySelector("map-context") as MapContext;
-    context.data = keyData.context
+		const leftSide = this.querySelector(
+			"keyboard-side:nth-of-type(1)",
+		) as KeyboardSide;
+		const rightSide = this.querySelector(
+			"keyboard-side:nth-of-type(2)",
+		) as KeyboardSide;
 
-    const leftSide = this.querySelector('keyboard-side:nth-of-type(1)') as KeyboardSide;
-    const rightSide = this.querySelector('keyboard-side:nth-of-type(2)') as KeyboardSide;
+		if (leftSide) {
+			leftSide.keyRows = layout.left;
+			leftSide.keyCells = keyData.left;
+		}
 
-    if (leftSide) {
-      leftSide.keyRows = layout.left;
-      leftSide.keyCells = keyData.left;
-    }
-
-    if (rightSide) {
-      rightSide.keyRows = layout.right;
-      rightSide.keyCells = keyData.right;
-    }
-  }
+		if (rightSide) {
+			rightSide.keyRows = layout.right;
+			rightSide.keyCells = keyData.right;
+		}
+	}
 }
 
-customElements.define('main-area', MainArea);
+customElements.define("main-area", MainArea);
