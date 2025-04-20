@@ -1,3 +1,4 @@
+import { store } from "../store/keyStore";
 import type { KeysideData } from "../types";
 
 export class MapContext extends HTMLElement {
@@ -11,7 +12,7 @@ export class MapContext extends HTMLElement {
 	}
 
 	set data(value) {
-		this._data = value;
+		if (value) this._data = value;
 		this.connectedCallback();
 	}
 
@@ -29,7 +30,13 @@ export class MapContext extends HTMLElement {
 		const button = this.querySelector("button");
 		if (button) {
 			button.addEventListener("click", () => {
-				console.log(button.value);
+				const data = store.getState("test");
+
+				console.log(button.value, data.keyData.context[button.value]);
+				store.setState(
+					{ layout: data.layout, keyData: data.keyData?.context[button.value] },
+					"test",
+				);
 			});
 		}
 	}

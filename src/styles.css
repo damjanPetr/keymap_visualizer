@@ -1,115 +1,121 @@
 @import "./reset.css";
-:root{
-    --bdrs-main: 8px;
-    --space-small: 0.5rem;
-    --space-medium: 1rem;
+:root {
+	--bdrs-main: 8px;
+	--space-small: 0.5rem;
+	--space-medium: 1rem;
 }
 
 header {
-    background: linen;
-    height: 50px;
-    font: 2rem "Georgia", sans-serif;
+	background: indigo;
+	height: 50px;
+	font: 2rem "Georgia", sans-serif;
+	color: azure;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	&:hover {
+		text-underline-offset: .25rem;
+		text-decoration: underline;
+	}
 
-    navigation {
-        background: wheat;
-        border-radius: var(--bdrs-main);
-        flex: 0 1 50%;
-    }
+	navigation {
+		font: 1rem "Courier New", sans-serif;
+		border-radius: var(--bdrs-main);
+		flex: 0 1 50%;
+		a {
+			transition: color 0.2s;
+			&:hover {
+				color: white;
+			}
+		}
+	}
 }
 
 keyboard-side {
-    .rows {
-        > div {
-            display: flex;
-            gap: var(--space-small);
-            width: 100%;
-            justify-content: space-between;
-            margin-bottom: var(--space-small);
-        }
-    }
+	.rows {
+		> div {
+			display: flex;
+			gap: var(--space-small);
+			width: 100%;
+			justify-content: space-between;
+			margin-bottom: var(--space-small);
+		}
+	}
 
-    .thumbs {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        /* grid-template-rows: 50px 150px 50px 150px; */
-        gap: var(--space-small);
-    }
+	.thumbs {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		/* grid-template-rows: 50px 150px 50px 150px; */
+		gap: var(--space-small);
+	}
 }
-
 
 main-area {
-    .keyboards-container {
-
-        padding-top: var(--space-medium);
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        place-items: center center;
-        background: ivory;
-    }
-
+	.keyboards-container {
+		padding-top: var(--space-medium);
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		place-items: center center;
+		background: ivory;
+	}
 }
 
-
 map-context {
-    background: darkkhaki;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h1{
-        font-size: 2rem;
-    }
-    p {
-        font-size: 3rem;
-    }
+	background: darkkhaki;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	h1 {
+		font-size: 2rem;
+	}
+	p {
+		font-size: 3rem;
+	}
 }
 
 key-button {
-    .wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font: 1rem "Monospace";
-        width: 80px;
-        height: 80px;
-        border-radius: var(--bdrs-main);
-        background: lavender;
-        font-size: 1.5rem;
-        border: 1px solid black;
+	.wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font: 1rem "Monospace";
+		width: 80px;
+		height: 80px;
+		border-radius: var(--bdrs-main);
+		background: lavender;
+		font-size: 1.5rem;
+		border: 1px solid black;
 
-        &:hover {
-            position: relative;
-            .key-hidden {
-                opacity: 1;
-            }
-        }
-    }
+		&:hover {
+			position: relative;
+			.key-hidden {
+				opacity: 1;
+			}
+		}
+	}
 
-    .key-hidden {
-        opacity: 0;
-        outline: 0.25rem solid mediumorchid;
-        transition: all 100ms ease-in;
-        border-radius: var(--bdrs-main);
-        position: absolute;
-        bottom: calc(100% + 1rem);
-        left: -50%;
-        height: 100%;
-        text-align: center;
-        background: linen;
-        width: 600%;
-        padding: 0.75rem;
-        font-size: 1.5rem;
-    }
-
+	.key-hidden {
+		opacity: 0;
+		outline: 0.25rem solid mediumorchid;
+		transition: all 100ms ease-in;
+		border-radius: var(--bdrs-main);
+		position: absolute;
+		bottom: calc(100% + 1rem);
+		left: -50%;
+		height: 100%;
+		text-align: center;
+		background: linen;
+		width: 600%;
+		padding: 0.75rem;
+		font-size: 1.5rem;
+	}
 }
 
 bottom-panel {
-    text-align: center;
+	text-align: center;
 
-    footer {
-        background: lightcoral;
-    }
+	footer {
+		background: lightcoral;
+	}
 }

@@ -4,9 +4,9 @@ export class Router extends HTMLElement {
 	}
 	async loadPage(path: string) {
 		let slot = this.querySelector("slot");
-		if(!slot) return;
-		if(path === "/") path = "index";
-			const page = await fetch(`./pages/${path || "404"}.html`);
+		if (!slot) return;
+		if (path === "/") path = "index";
+		const page = await fetch(`./pages/${path || "404"}.html`);
 		const pageHTML = await page.text();
 		slot.innerHTML = pageHTML;
 	}

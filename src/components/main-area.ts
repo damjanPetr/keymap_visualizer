@@ -16,7 +16,7 @@ export class MainArea extends HTMLElement {
 		const layout = await fetchKeyLayout("main");
 		const keyData = await changeLoadout("key");
 
-		store.subscribe(this.applyMapData);
+		// store.subscribe(this.applyMapData);
 		return { layout, keyData };
 	}
 	async connectedCallback() {
@@ -32,8 +32,16 @@ export class MainArea extends HTMLElement {
       </div>
       `;
 
+		store.subscribe(this.applyMapData.bind(this), "test");
+
 		const { layout, keyData } = await this.init();
-		console.log("%c mapData", "background: plum", { layout, keyData });
+
+		// const { layout, keyData } = store.getState("test");
+		store.setState({ layout, keyData }, "test");
+		console.log("%c mapData", "background: plum", {
+			layout,
+			keyData,
+		});
 		const select = this.querySelector("select");
 		select?.addEventListener("change", async (e) => {
 			if (e.target instanceof HTMLSelectElement) {
@@ -42,7 +50,6 @@ export class MainArea extends HTMLElement {
 				this.applyMapData({ layout, keyData: newData });
 			}
 		});
-		this.applyMapData({ layout, keyData });
 	}
 
 	applyMapData({
@@ -50,7 +57,8 @@ export class MainArea extends HTMLElement {
 		keyData,
 	}: { layout: LayoutData; keyData: KeysideData }) {
 		const context = this.querySelector("map-context") as MapContext;
-		context.data = keyData.context;
+		console.log("%c zz", "background: gainboro", layout, keyData);
+		context.data = keyData?.context;
 
 		const leftSide = this.querySelector(
 			"keyboard-side:nth-of-type(1)",

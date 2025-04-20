@@ -24,27 +24,35 @@ const state: State = {
 	},
 };
 
-const listeners: Record<string, Array<(...args: symbol[]) => void>> = {
+type Stores = keyof typeof state;
+type Listener<T> = (value: T) => void;
+
+const listeners: Record<string, Array<Listener<unknown>>> = {
 	test: [],
 };
 
-type Stores = keyof typeof state;
 const store = {
-	getState(store: Stores) {
+	getState<T extends Stores>(store: T) {
 		return state[store];
 	},
-	setState(value: unknown, store: Stores) {
+	setState<T extends Stores>(value: (typeof state)[T], store: T) {
 		state[store] = value;
 		for (const listener of listeners[store]) {
+			console.log("%c value", "background: magenta", { listener, value });
 			listener(value);
 		}
 	},
-	subscribe(cb: (...args: symbol[]) => void, store: Stores) {
-		listeners[store].push(cb);
+	subscribe<T extends Stores>(cb: Listener<(typeof state)[T]>, store: T): void {
+		listeners[store].push(cb as Listener<unknown>);
 	},
-	unsubscribe(value: symbol, store: Stores) {
-		const index = listeners[store].findIndex((item) => item === value);
-		listeners[store].splice(index, 1);
+	unsubscribe<T extends Stores>(
+		cb: Listener<(typeof state)[T]>,
+		store: T,
+	): void {
+		const index = listeners[store].findIndex((item) => item === cb);
+		if (index !== -1) {
+			listeners[store].splice(index, 1);
+		}
 	},
 };
 

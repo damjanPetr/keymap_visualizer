@@ -1,83 +1,78 @@
 import "./key-button";
-import type {  KeysideData, LayoutData,  } from "../types";
+import type { KeysideData, LayoutData } from "../types";
 
 export class KeyboardSide extends HTMLElement {
-  constructor() {
-    super()
-  }
+	constructor() {
+		super();
+	}
 
-  private _keyRows?: LayoutData['left'] = [];
-  private _keyCells?: KeysideData['left'] = [];
+	private _keyRows?: LayoutData["left"] = [];
+	private _keyCells?: KeysideData["left"] = [];
 
-  set keyCells(value) {
-    this._keyCells = value;
-    this.connectedCallback();
-  }
+	set keyCells(value) {
+		this._keyCells = value;
+		this.connectedCallback();
+	}
 
-  get keyCells() {
-    return this._keyCells;
-  }
+	get keyCells() {
+		return this._keyCells;
+	}
 
-  set keyRows(value) {
-    this._keyRows = value;
-    this.connectedCallback();
-  }
+	set keyRows(value) {
+		this._keyRows = value;
+		this.connectedCallback();
+	}
 
-  get keyRows() {
-    return this._keyRows;
-  }
+	get keyRows() {
+		return this._keyRows;
+	}
 
+	generateKeyButton(row: Rows["1-row"], node: Element | null) {
+		// row.forEach((cellData) => {
+		//   const kb = document.createElement("key-button") as KeyButton
+		//   kb.key = String(cellData.key);
+		//   kb.value = String(cellData.value);
+		//   if (node) {
+		//     node.appendChild(kb)
+		//   }
+		// })
+	}
 
-  generateKeyButton(row: Rows['1-row'], node: Element | null) {
-    // row.forEach((cellData) => {
-    //   const kb = document.createElement("key-button") as KeyButton
-    //   kb.key = String(cellData.key);
-    //   kb.value = String(cellData.value);
+	side: "left" | "right" | undefined;
 
-    //   if (node) {
-    //     node.appendChild(kb)
-    //   }
-    // })
+	connectedCallback() {
+		this.innerHTML = `<div class="rows">
+    ${this._keyRows
+			?.map(
+				(row) => `<div>
+       ${row
+					.map((cellData) => {
+						const selected = this.keyCells?.find(
+							(cell) => cell.key === cellData,
+						);
+						if (!selected)
+							return '<key-button value="1" desc="no value" key="//"></key-button>';
 
-  }
-
-
-  side: "left" | "right" |undefined
-
-  connectedCallback() {
-
-    const testArray = this.keyRows?.map((item)=>{
-      const selected = this.keyCells?.find(cell => item === cell.key)
-      return {
-        ...selected,
-        ...item
-      }
-    })
-
-
-    this.innerHTML =
-      `<div class="rows">
-    ${this._keyRows?.map((row) =>  `<div>
-       ${row.map((cellData) => {
-        const selected = this.keyCells?.find(cell => cell.key === cellData)
-        const button = `<key-button value="${selected?.value}" desc="${selected?.desc}" key="${selected?.key}"></key-button>`
-        return button;
-       }).join("")}
-          </div>`).join("")}
+						const button = `<key-button value="${selected?.value}" desc="${selected?.desc}" key="${selected?.key}"></key-button>`;
+						return button;
+					})
+					.join("")}
+          </div>`,
+			)
+			.join("")}
       </div>
        <div class="thumbs">
        </div>
     `;
 
-    // console.log( "%c this?._keyCells",'background: blue',this?._keyCells)
-    for (let {desc, value,key} of this?._keyCells) {
-      const keyButton = this.querySelector(`key-button[key="${key}"]`)
-     if(keyButton){
-       keyButton?.setAttribute('value', value);
-       keyButton?.setAttribute('desc', desc);
-     }
-          }
-      }
+		for (const { desc, value, key } of this?._keyCells) {
+			const keyButton = this.querySelector(`key-button[key="${key}"]`);
+			if (keyButton) {
+				keyButton?.setAttribute("value", value);
+				keyButton?.setAttribute("desc", desc);
+			}
+		}
+	}
 }
 
 customElements.define("keyboard-side", KeyboardSide);
