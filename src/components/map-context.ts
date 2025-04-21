@@ -19,7 +19,9 @@ export class MapContext extends HTMLElement {
 	adoptedCallback() {}
 
 	connectedCallback() {
-		console.log("%c ", "background: yellow", Object.keys(this._data));
+		if (this._data) {
+			console.log("%c ", "background: yellow", Object.keys(this._data));
+		}
 		this.innerHTML = `
       <div>
         <h1>Map Context</h1>
@@ -31,7 +33,6 @@ export class MapContext extends HTMLElement {
 		if (button) {
 			button.addEventListener("click", () => {
 				const data = store.getState("test");
-
 				console.log(button.value, data.keyData.context[button.value]);
 				store.setState(
 					{ layout: data.layout, keyData: data.keyData?.context[button.value] },

@@ -1,25 +1,27 @@
 export class KeyButton extends HTMLElement {
 	constructor() {
 		super();
-		this.height = 30;
-		this.width = 30;
-		this.hidden = false;
 	}
-	height: number;
-	width: number;
-	hidden: boolean;
+	private _value?: string = "";
+	private _key = "";
+	desc = "";
+	height = 30;
+	width = 30;
+	hidden = false;
 	get key() {
-		return this.getAttribute("key");
+		return this._key;
 	}
 	set key(value: string) {
-		this.setAttribute("key", value);
+		this._key = value;
+		this.connectedCallback();
 	}
 
 	get value() {
-		return this.getAttribute("value");
+		return this._value;
 	}
-	set value(value: string | null) {
-		this.setAttribute("value", value);
+	set value(value: string) {
+		this._value = value;
+		this.connectedCallback();
 	}
 
 	connectedCallback() {

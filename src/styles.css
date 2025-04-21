@@ -79,7 +79,7 @@ key-button {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		font: 1rem "Monospace";
+		font: 1rem "Courier New", sans-serif;
 		width: 80px;
 		height: 80px;
 		border-radius: var(--bdrs-main);
