@@ -1,195 +1,198 @@
 left:
-  1-row:
-    - key: "`"
-      value: 192
-      desc: ""
-    - key: "1"
-      value: 192
-      desc: ""
-    - key: "2"
-      value: 49
-      desc: ""
-    - key: "3"
-      value: 50
-      desc: ""
-    - key: "4"
-      value: 51
-      desc: ""
-    - key: "5"
-      value: 52
-      desc: ""
-  2-row:
-    - key: "\\"
-      value: 220
-      desc: ""
-    - key: "'"
-      value: 188
-      desc: ""
-    - key: ","
-      value: 190
-      desc: ""
-    - key: "."
-      value: 80
-      desc: ""
-    - key: "p"
-      value: 89
-      desc: ""
-    - key: "y"
-      value: 89
-      desc: ""
-  3-row:
-    - key: "DEL"
-      value: 89
-      desc: ""
-    - key: "a"
-      value: 79
-      desc: ""
-    - key: "o"
-      value: 69
-      desc: ""
-    - key: "e"
-      value: 85
-      desc: ""
-    - key: "u"
-      value: 73
-      desc: ""
-    - key: "i"
-      value: 81
-      desc: ""
-  4-row:
-    - key: "L-SHIFT"
-      value: 891
-      desc: ""
-    - key: ";"
-      value: 186
-      desc: ""
-    - key: "q"
-      value: 81
-      desc: ""
-    - key: "j"
-      value: 74
-      desc: ""
-    - key: "k"
-      value: 75
-      desc: ""
-    - key: "x"
-      value: 76
-      desc: ""
+  - key: "`"
+    value: "insert at previous"
+    desc: ""
+  - key: "1"
+    value: "multiselect"
+    desc: ""
+  - key: "2"
+    value: "buffer symbols"
+    desc: ""
+  - key: "3"
+    value: "find previous search term"
+    desc: ""
+  - key: "4"
+    value: "find next search term"
+    desc: ""
+  - key: "5"
+    value: "go alternate blackets/braces"
+    desc: ""
+  - key: "\\"
+    value: 220
+    desc: ""
+  - key: "'"
+    value: "go to mark"
+    desc: ""
+  - key: ","
+    value: "open project file"
+    desc: ""
+  - key: "."
+    value: "go to start of line"
+    desc: ""
+  - key: "p"
+    value: "go to end of line"
+    desc: ""
+  - key: "y"
+    value: "activate visual mode"
+    desc: ""
+  - key: "DEL"
+    value: "delete charactor"
+    desc: ""
+  - key: "a"
+    value: "insert at newline"
+    desc: ""
+  - key: "o"
+    value: "insert before"
+    desc: ""
+  - key: "e"
+    value: "go left"
+    desc: ""
+  - key: "u"
+    value: "go right"
+    desc: ""
+  - key: "i"
+    value: "prev word end"
+    desc: ""
+  - key: "L-SHIFT"
+    value: 891
+    desc: ""
+  - key: ";"
+    value: "comment code"
+    desc: ""
+  - key: "q"
+    value: "cut"
+    desc: ""
+  - key: "j"
+    value: "copy"
+    desc: ""
+  - key: "k"
+    value: "paste"
+    desc: ""
+  - key: "x"
+    value: "replace char"
+    desc: ""
+
+  - key: "ESC"
+    value: "use space"
+    desc: ""
+  - key: "BS"
+    value: "backspace"
+    desc: ""
+  - key: "L-WIN"
+    value: 91
+    desc: ""
+  - key: "L-CTRL"
+    value: 17
+    desc: ""
+  - key: "L-ALT"
+    value: 18
+    desc: ""
+  - key: "L-SHIFT"
+    value: 16
+    desc: ""
 
 right:
-  1-row:
-    - key: "6"
-      value: 53
-      desc: ""
-    - key: "7"
-      value: 54
-      desc: ""
-    - key: "8"
-      value: 55
-      desc: ""
-    - key: "9"
-      value: 56
-      desc: ""
-    - key: "0"
-      value: 57
-      desc: ""
-    - key: "="
-      value: 187
-      desc: ""
-  2-row:
-    - key: "f"
-      value: 70
-      desc: ""
-    - key: "g"
-      value: 67
-      desc: ""
-    - key: "c"
-      value: 82
-      desc: ""
-    - key: "r"
-      value: 76
-      desc: ""
-    - key: "l"
-      value: 191
-      desc: ""
-    - key: "/"
-      value: 189
-      desc: ""
-  3-row:
-    - key: "d"
-      value: 68
-      desc: ""
-    - key: "h"
-      value: 72
-      desc: ""
-    - key: "t"
-      value: 84
-      desc: ""
-    - key: "n"
-      value: 78
-      desc: ""
-    - key: "s"
-      value: 83
-      desc: ""
-    - key: "-"
-      value: 189
-      desc: ""
-  4-row:
-    - key: "b"
-      value: 66
-      desc: ""
-    - key: "m"
-      value: 77
-      desc: ""
-    - key: "w"
-      value: 87
-      desc: ""
-    - key: "v"
-      value: 86
-      desc: ""
-    - key: "z"
-      value: 90
-      desc: ""
-    - key: "R-shift"
-      value: 98
-      desc: ""
-
-left-thumbs:
-  big-0:
-    value: 97
+  - key: "6"
+    value: "select word"
     desc: ""
-  big-1:
-    value: 98
+  - key: "7"
+    value: "inner of quotes"
     desc: ""
-  top-0:
-    value: 91
+  - key: "8"
+    value: "inner of brackets/braces"
     desc: ""
-  top-1:
-    value: 17
+  - key: "9"
+    value: "go last edit location"
     desc: ""
-  side-0:
-    value: 18
+  - key: "0"
+    value: "repeat edit command"
     desc: ""
-  side-1:
-    value: 16
+  - key: "="
+    value: "idk"
     desc: ""
-
-right-thumbs:
-  big-0:
+  - key: "f"
+    value: "undo"
+    desc: ""
+  - key: "g"
+    value: "prev word start"
+    desc: ""
+  - key: "c"
+    value: "prev word start"
+    desc: ""
+  - key: "r"
+    value: "sneak motion"
+    desc: ""
+  - key: "l"
+    value: "mark a place"
+    desc: ""
+  - key: "/"
+    value: "open marks"
+    desc: ""
+  - key: "d"
+    value: "leader key"
+    desc: ""
+  - key: "h"
+    value: "go up"
+    desc: ""
+  - key: "t"
+    value: "go down"
+    desc: ""
+  - key: "n"
+    value: "insert after"
+    desc: ""
+  - key: "s"
+    value: "go backwards"
+    desc: ""
+  - key: "-"
+    value: "select previous visual selection"
+    desc: ""
+  - key: "b"
+    value: "open buffer search"
+    desc: ""
+  - key: "m"
+    value: "start of paragraph"
+    desc: ""
+  - key: "w"
+    value: "switch to alternate file"
+    desc: ""
+  - key: "v"
+    value: "end of paragraph"
+    desc: ""
+  - key: "z"
+    value: "leader key"
+    desc: ""
+  - key: "R-SHIFT"
     value: 99
     desc: ""
-  big-1:
+  - key: "CAPS"
     value: 98
     desc: ""
-  top-0:
+  - key: "LAY 1"
     value: 91
     desc: ""
-  top-1:
+  - key: "TAB"
     value: 17
     desc: ""
-  side-0:
+  - key: "ENTER"
     value: 18
     desc: ""
-  side-1:
-    value: 16
+  - key: "SPACE"
+    value: "leader key"
     desc: ""
+
+context:
+  SPACE:
+    left:
+      - key: "q"
+        value: "TEST"
+        desc: ""
+      - key: "j"
+        value: "TEST"
+        desc: ""
+      - key: "k"
+        value: "TEST"
+        desc: ""
+      - key: "x"
+        value: "TEST"
+        desc: ""
+    right:

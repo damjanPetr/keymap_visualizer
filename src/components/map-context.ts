@@ -24,7 +24,6 @@ export class MapContext extends HTMLElement {
 		}
 		this.innerHTML = `
       <div>
-        <h1>Map Context</h1>
         <p>${Object.keys(this?._data).map((item) => `<button value="${item}">${item}</button>`)}</p>
       </div>
     `;

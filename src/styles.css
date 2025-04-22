@@ -51,7 +51,12 @@ keyboard-side {
 	}
 }
 
+main {
+	min-height: calc(100vh - 50px) !important;
+}
 main-area {
+	width: 100%;
+	display: block;
 	.keyboards-container {
 		padding-top: var(--space-medium);
 		display: grid;
@@ -62,7 +67,8 @@ main-area {
 }
 
 map-context {
-	background: darkkhaki;
+	background: darkorchid;
+	color: color-mix(in srgb, darkorchid 30%, white);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -70,7 +76,7 @@ map-context {
 		font-size: 2rem;
 	}
 	p {
-		font-size: 3rem;
+		font-size: 2rem;
 	}
 }
 
