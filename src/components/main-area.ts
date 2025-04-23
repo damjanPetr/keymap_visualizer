@@ -27,6 +27,7 @@ export class MainArea extends HTMLElement {
                <select>
                  <option value="key">Key</option>
                  <option value="zed">Zed</option>
+                 <option value="obsidian">Obsidian</option>
                </select>
            <keyboard-side side="right"></keyboard-side>
       </div>
@@ -57,7 +58,6 @@ export class MainArea extends HTMLElement {
 		keyData,
 	}: { layout: LayoutData; keyData: KeysideData }) {
 		const context = this.querySelector("map-context") as MapContext;
-		console.log("%c zz", "background: gainboro", layout, keyData);
 		context.data = keyData?.context;
 
 		const leftSide = this.querySelector(
