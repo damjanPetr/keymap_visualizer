@@ -32,4 +32,4 @@ export class KeyButton extends HTMLElement {
 	}
 }
 
-customElements.define("key-button", KeyButton);
+customElements.define("x-key-button", KeyButton);

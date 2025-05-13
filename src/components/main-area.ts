@@ -79,4 +79,4 @@ export class MainArea extends HTMLElement {
 	}
 }
 
-customElements.define("main-area", MainArea);
+customElements.define("x-main-area", MainArea);

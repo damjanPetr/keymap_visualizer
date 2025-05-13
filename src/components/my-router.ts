@@ -32,4 +32,4 @@ export class Router extends HTMLElement {
 		this.init();
 	}
 }
-customElements.define("my-router", Router);
+customElements.define("x-my-router", Router);

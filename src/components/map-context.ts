@@ -42,4 +42,4 @@ export class MapContext extends HTMLElement {
 	}
 }
 
-customElements.define("map-context", MapContext);
+customElements.define("x-map-context", MapContext);

@@ -61,4 +61,4 @@ export class KeyboardSide extends HTMLElement {
 	}
 }
 
-customElements.define("keyboard-side", KeyboardSide);
+customElements.define("x-keyboard-side", KeyboardSide);
