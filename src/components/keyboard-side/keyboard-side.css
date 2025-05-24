@@ -1,4 +1,4 @@
-keyboard-side {
+x-keyboard-side {
 	.rows {
 		> div {
 			display: flex;

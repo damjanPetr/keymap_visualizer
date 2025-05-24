@@ -42,7 +42,7 @@ const store = {
 			listener(value);
 		}
 	},
-	subscribe<T extends Stores>(cb: Listener<(typeof state)[T]>, store: T): void {
+	subscribe<T>(cb: Listener<[T]>, store: string): void {
 		listeners[store].push(cb as Listener<unknown>);
 	},
 	unsubscribe<T extends Stores>(

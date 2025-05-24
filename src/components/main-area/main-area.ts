@@ -16,33 +16,34 @@ export class MainArea extends HTMLElement {
 		const layout = await fetchKeyLayout("main");
 		const keyData = await changeLoadout("key");
 
-		// store.subscribe(this.applyMapData);
 		return { layout, keyData };
 	}
 	async connectedCallback() {
 		this.innerHTML = `
-      <map-context></map-context>
+      <x-map-context></x-map-context>
       <div class="keyboards-container">
-            <keyboard-side side="left"></keyboard-side>
+            <x-keyboard-side side="left"></x-keyboard-side>
                <select>
                  <option value="key">Key</option>
                  <option value="zed">Zed</option>
                  <option value="obsidian">Obsidian</option>
                </select>
-           <keyboard-side side="right"></keyboard-side>
-      </div>
-      `;
+           <x-keyboard-side side="right"></x-keyboard-side>
+      </div>`;
 
-		store.subscribe(this.applyMapData.bind(this), "test");
+		store.subscribe<typeof this.applyMapData>(
+			this.applyMapData.bind(this),
+			"test",
+		);
 
 		const { layout, keyData } = await this.init();
 
-		// const { layout, keyData } = store.getState("test");
 		store.setState({ layout, keyData }, "test");
 		console.log("%c mapData", "background: plum", {
 			layout,
 			keyData,
 		});
+
 		const select = this.querySelector("select");
 		select?.addEventListener("change", async (e) => {
 			if (e.target instanceof HTMLSelectElement) {
@@ -57,15 +58,16 @@ export class MainArea extends HTMLElement {
 		layout,
 		keyData,
 	}: { layout: LayoutData; keyData: KeysideData }) {
-		const context = this.querySelector("map-context") as MapContext;
+		const context = this.querySelector("x-map-context") as MapContext;
 		context.data = keyData?.context;
 
 		const leftSide = this.querySelector(
-			"keyboard-side:nth-of-type(1)",
+			"x-keyboard-side:nth-of-type(1)",
 		) as KeyboardSide;
 		const rightSide = this.querySelector(
-			"keyboard-side:nth-of-type(2)",
+			"x-keyboard-side:nth-of-type(2)",
 		) as KeyboardSide;
+		console.log("%c uoauoa", "background: blue", { leftSide });
 
 		if (leftSide) {
 			leftSide.keyRows = layout.left;

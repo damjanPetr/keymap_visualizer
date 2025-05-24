@@ -30,7 +30,7 @@ export class KeyboardSide extends HTMLElement {
 	}
 
 	generateKeyButton(layoutKeyValue: string): KeyButton {
-		const kb = document.createElement("key-button") as KeyButton;
+		const kb = document.createElement("x-key-button") as KeyButton;
 		const selected = this.keyCells?.find((cell) => cell.key === layoutKeyValue);
 		if (!selected?.key) {
 			kb.value = "1";
@@ -60,8 +60,6 @@ export class KeyboardSide extends HTMLElement {
 		}
 	}
 }
-
-customElements.define("x-keyboard-side", KeyboardSide);
 
 const registerKeyboardSide = () => {
 	customElements.define("x-keyboard-side", KeyboardSide);
