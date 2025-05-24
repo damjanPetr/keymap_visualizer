@@ -62,3 +62,9 @@ export class KeyboardSide extends HTMLElement {
 }
 
 customElements.define("x-keyboard-side", KeyboardSide);
+
+const registerKeyboardSide = () => {
+	customElements.define("x-keyboard-side", KeyboardSide);
+};
+
+export { registerKeyboardSide };

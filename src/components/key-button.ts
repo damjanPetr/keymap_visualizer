@@ -32,4 +32,8 @@ export class KeyButton extends HTMLElement {
 	}
 }
 
-customElements.define("x-key-button", KeyButton);
+const registerKeyButton = () => {
+	customElements.define("x-key-button", KeyButton);
+};
+
+export { registerKeyButton };

@@ -79,4 +79,8 @@ export class MainArea extends HTMLElement {
 	}
 }
 
-customElements.define("x-main-area", MainArea);
+const registerMainArea = () => {
+	customElements.define("x-main-area", MainArea);
+};
+
+export { registerMainArea };

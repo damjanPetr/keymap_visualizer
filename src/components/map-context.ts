@@ -42,4 +42,8 @@ export class MapContext extends HTMLElement {
 	}
 }
 
-customElements.define("x-map-context", MapContext);
+const registerMapContext = () => {
+	customElements.define("x-map-context", MapContext);
+};
+
+export { registerMapContext };

@@ -1,0 +1,11 @@
+main-area {
+	width: 100%;
+	display: block;
+	.keyboards-container {
+		padding-top: var(--space-medium);
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		place-items: center center;
+		background: ivory;
+	}
+}
