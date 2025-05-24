@@ -1,15 +1,11 @@
-@import "./reset.css";
-@import url("components/bottom-panel.css");
-@import url("components/key-button.css");
-@import url("components/keyboard-side.css");
-@import url("components/main-area.css");
-@import url("components/map-context.css");
+@import "./styles/reset.css";
+@import "./styles/variables.css";
 
-:root {
-	--bdrs-main: 8px;
-	--space-small: 0.5rem;
-	--space-medium: 1rem;
-}
+@import url("./components/bottom-panel/bottom-panel.css");
+@import url("./components/key-button/key-button.css");
+@import url("./components/keyboard-side/keyboard-side.css");
+@import url("./components/main-area/main-area.css");
+@import url("./components/map-context/map-context.css");
 
 header {
 	background: indigo;

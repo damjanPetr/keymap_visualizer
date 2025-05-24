@@ -1,6 +1,6 @@
-import "./key-button";
-import type { KeysideData, LayoutData } from "../types";
-import type { KeyButton } from "./key-button";
+import "../key-button/key-button";
+import type { KeysideData, LayoutData } from "../../types";
+import type { KeyButton } from "../key-button/key-button";
 
 export class KeyboardSide extends HTMLElement {
 	constructor() {

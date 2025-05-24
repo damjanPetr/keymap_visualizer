@@ -1,5 +1,5 @@
-import { store } from "../store/keyStore";
-import type { KeysideData } from "../types";
+import { store } from "../../store/keyStore";
+import type { KeysideData } from "../../types";
 
 export class MapContext extends HTMLElement {
 	constructor() {

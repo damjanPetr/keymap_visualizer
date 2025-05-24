@@ -1,9 +1,9 @@
-import type { KeysideData, LayoutData } from "../types";
-import { changeLoadout, fetchKeyLayout } from "../fetch";
-import type { KeyboardSide } from "./keyboard-side";
-import "./map-context";
-import type { MapContext } from "./map-context";
-import { store } from "../store/keyStore";
+import type { KeysideData, LayoutData } from "../../types";
+import { changeLoadout, fetchKeyLayout } from "../../fetch";
+import type { KeyboardSide } from "../keyboard-side/keyboard-side";
+import "../map-context/map-context";
+import type { MapContext } from "../map-context/map-context";
+import { store } from "../../store/keyStore";
 
 export class MainArea extends HTMLElement {
 	constructor() {

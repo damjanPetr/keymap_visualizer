@@ -1,4 +1,3 @@
-
 export const mapLayoutDataToKeys = () => {
-  return
-}
+	return;
+};
