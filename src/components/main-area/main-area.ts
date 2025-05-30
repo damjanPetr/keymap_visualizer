@@ -4,6 +4,7 @@ import type { KeyboardSide } from "../keyboard-side/keyboard-side";
 import "../map-context/map-context";
 import type { MapContext } from "../map-context/map-context";
 import { store } from "../../store/keyStore";
+import { layoutsArray } from "../../utils/helpers";
 
 export class MainArea extends HTMLElement {
 	constructor() {
@@ -12,21 +13,18 @@ export class MainArea extends HTMLElement {
 
 	mapData: KeysideData | null = null;
 
-	async init() {
-		const layout = await fetchKeyLayout("main");
-		const keyData = await changeLoadout("key");
-
-		return { layout, keyData };
-	}
 	async connectedCallback() {
 		this.innerHTML = `
       <x-map-context></x-map-context>
       <div class="keyboards-container">
             <x-keyboard-side side="left"></x-keyboard-side>
                <select>
-                 <option value="key">Key</option>
-                 <option value="zed">Zed</option>
-                 <option value="obsidian">Obsidian</option>
+               ${layoutsArray
+									.map(
+										({ value, name }) =>
+											`<option value="${value}">${name}</option>`,
+									)
+									.join()}
                </select>
            <x-keyboard-side side="right"></x-keyboard-side>
       </div>`;
@@ -35,8 +33,8 @@ export class MainArea extends HTMLElement {
 			this.applyMapData.bind(this),
 			"test",
 		);
-
-		const { layout, keyData } = await this.init();
+		const layout = await fetchKeyLayout("main");
+		const keyData = await changeLoadout("win-key");
 
 		store.setState({ layout, keyData }, "test");
 		console.log("%c mapData", "background: plum", {
@@ -67,7 +65,6 @@ export class MainArea extends HTMLElement {
 		const rightSide = this.querySelector(
 			"x-keyboard-side:nth-of-type(2)",
 		) as KeyboardSide;
-		console.log("%c uoauoa", "background: blue", { leftSide });
 
 		if (leftSide) {
 			leftSide.keyRows = layout.left;

@@ -1,55 +1,55 @@
 left:
   - key: "`"
-    value: 192
-    desc: ""
+    value: "ALT+F4"
+    desc: 192
   - key: "1"
-    value: 192
-    desc: ""
+    value: "Select win taskbar 1"
+    desc: 192
   - key: "2"
-    value: 49
-    desc: ""
+    value: "Select win taskbar 2"
+    desc: 49
   - key: "3"
-    value: 50
-    desc: ""
+    value: "Select win taskbar 3"
+    desc: 50
   - key: "4"
-    value: 51
-    desc: ""
+    value: "Select win taskbar 4"
+    desc: 51
   - key: "5"
-    value: 52
-    desc: ""
+    value: "Select win taskbar 5"
+    desc: 52
   - key: "\\"
     value: 220
     desc: ""
   - key: "'"
     value: 188
-    desc: ""
+    desc: "Open %APPDATA%"
   - key: ","
     value: 190
-    desc: ""
+    desc: "Open Downloads"
   - key: "."
     value: 80
-    desc: ""
+    desc: "Open Emoji picker"
   - key: "p"
     value: 89
-    desc: ""
+    desc: "Open Obsidian"
   - key: "y"
     value: 89
-    desc: ""
+    desc: "Open Obsidian Bookmarks"
   - key: "DEL"
     value: 89
     desc: ""
   - key: "a"
     value: 79
-    desc: ""
+    desc: "Open Action Center"
   - key: "o"
     value: 69
-    desc: ""
+    desc: "Open MPV Player"
   - key: "e"
     value: 85
-    desc: ""
+    desc: "Open Zed"
   - key: "u"
     value: 73
-    desc: ""
+    desc: "Open Brave"
   - key: "i"
     value: 81
     desc: ""
@@ -93,20 +93,20 @@ left:
 
 right:
   - key: "6"
-    value: 53
-    desc: ""
+    value: "Select win taskbar 6"
+    desc: 53
   - key: "7"
-    value: 54
-    desc: ""
+    value: "Select win taskbar 7"
+    desc: 54
   - key: "8"
-    value: 55
-    desc: ""
+    value: "Select win taskbar 8"
+    desc: 55
   - key: "9"
-    value: 56
-    desc: ""
+    value: "Select win taskbar 9"
+    desc: 56
   - key: "0"
-    value: 57
-    desc: ""
+    value: "Select win taskbar last"
+    desc: 57
   - key: "="
     value: 187
     desc: ""
@@ -179,20 +179,3 @@ right:
   - key: "SPACE"
     value: 16
     desc: ""
-
-context:
-  SPACE:
-    left:
-      - key: "q"
-        value: "TEST"
-        desc: ""
-      - key: "j"
-        value: "TEST"
-        desc: ""
-      - key: "k"
-        value: "TEST"
-        desc: ""
-      - key: "x"
-        value: "TEST"
-        desc: ""
-    right:

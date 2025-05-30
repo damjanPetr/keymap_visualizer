@@ -38,7 +38,6 @@ const store = {
 	setState<T extends Stores>(value: (typeof state)[T], store: T) {
 		state[store] = value;
 		for (const listener of listeners[store]) {
-			console.log("%c value", "background: magenta", { listener, value });
 			listener(value);
 		}
 	},

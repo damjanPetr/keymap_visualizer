@@ -4,6 +4,7 @@ import { registerKeyboardSide } from "./components/keyboard-side/keyboard-side";
 import { registerMainArea } from "./components/main-area/main-area";
 import { registerMapContext } from "./components/map-context/map-context";
 import { registerRouter } from "./components/my-router/my-router";
+import { moveLayout } from "./utils/helpers";
 
 const app = () => {
 	registerBottomPanel();
@@ -15,3 +16,25 @@ const app = () => {
 };
 
 document.addEventListener("DOMContentLoaded", app);
+
+document.addEventListener("keydown", async (event) => {
+	const currentLayout = document.querySelector("select")?.value;
+	if (!currentLayout) return;
+	switch (event.key) {
+		case "Escape": {
+			break;
+		}
+		case "ArrowUp": {
+			await moveLayout("up", currentLayout);
+			break;
+		}
+
+		case "ArrowDown": {
+			await moveLayout("down", currentLayout);
+			break;
+		}
+		default: {
+			break;
+		}
+	}
+});
