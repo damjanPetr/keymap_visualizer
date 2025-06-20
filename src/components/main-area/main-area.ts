@@ -1,24 +1,46 @@
-import type { KeysideData, LayoutData } from "../../types";
 import { changeLoadout, fetchKeyLayout } from "../../fetch";
+import { store } from "../../store/keyStore";
+import type { KeysideData, LayoutData } from "../../types";
+import { layoutsArray } from "../../utils/helpers";
 import type { KeyboardSide } from "../keyboard-side/keyboard-side";
 import "../map-context/map-context";
 import type { MapContext } from "../map-context/map-context";
-import { store } from "../../store/keyStore";
-import { layoutsArray } from "../../utils/helpers";
 
+interface renderProps {
+	layout: LayoutData;
+	keyData: KeysideData;
+	selectedLayout: string;
+}
 export class MainArea extends HTMLElement {
 	constructor() {
 		super();
 	}
-
-	mapData: KeysideData | null = null;
+	mapData?: KeysideData;
 
 	async connectedCallback() {
+		store.subscribe<typeof this.render>(this.render.bind(this), "test");
+
+		const layout = await fetchKeyLayout("main");
+		const keyData = await changeLoadout("win-key");
+
+		store.setState({ layout, keyData, selectedLayout: "obsidian" }, "test");
+
+		const select = this.querySelector("select");
+		select?.addEventListener("change", async (e) => {
+			if (e.target instanceof HTMLSelectElement) {
+				const value = e.target.value;
+				const keyData = await changeLoadout(value);
+				store.setState({ layout, keyData, selectedLayout: value }, "test");
+			}
+		});
+	}
+
+	render({ layout, keyData, selectedLayout }: renderProps) {
 		this.innerHTML = `
       <x-map-context></x-map-context>
       <div class="keyboards-container">
             <x-keyboard-side side="left"></x-keyboard-side>
-               <select>
+               <select value=${selectedLayout}>
                ${layoutsArray
 									.map(
 										({ value, name }) =>
@@ -29,33 +51,6 @@ export class MainArea extends HTMLElement {
            <x-keyboard-side side="right"></x-keyboard-side>
       </div>`;
 
-		store.subscribe<typeof this.applyMapData>(
-			this.applyMapData.bind(this),
-			"test",
-		);
-		const layout = await fetchKeyLayout("main");
-		const keyData = await changeLoadout("win-key");
-
-		store.setState({ layout, keyData }, "test");
-		console.log("%c mapData", "background: plum", {
-			layout,
-			keyData,
-		});
-
-		const select = this.querySelector("select");
-		select?.addEventListener("change", async (e) => {
-			if (e.target instanceof HTMLSelectElement) {
-				const value = e.target.value;
-				const newData = await changeLoadout(value);
-				this.applyMapData({ layout, keyData: newData });
-			}
-		});
-	}
-
-	applyMapData({
-		layout,
-		keyData,
-	}: { layout: LayoutData; keyData: KeysideData }) {
 		const context = this.querySelector("x-map-context") as MapContext;
 		context.data = keyData?.context;
 

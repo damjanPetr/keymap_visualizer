@@ -3,6 +3,7 @@ import type { KeysideData, LayoutData } from "../types";
 interface Data {
 	layout: LayoutData;
 	keyData: KeysideData;
+	selectedLayout: string;
 }
 
 interface State {
@@ -12,6 +13,7 @@ interface State {
 
 const state: State = {
 	test: {
+		selectedLayout: "obsidian",
 		layout: {
 			left: [],
 			right: [],

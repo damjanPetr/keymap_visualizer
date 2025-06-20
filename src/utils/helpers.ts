@@ -22,11 +22,11 @@ export const moveLayout = async (side: "up" | "down", layoutName: string) => {
 	if (side === "up") {
 		const nextLayout = layoutsArray[layoutIndex + 1].value;
 		const keyData = await changeLoadout(nextLayout);
-		store.setState({ layout, keyData }, "test");
+		store.setState({ layout, keyData, selectedLayout: nextLayout }, "test");
 	} else {
 		const nextLayout = layoutsArray[layoutIndex - 1].value;
 
 		const keyData = await changeLoadout(nextLayout);
-		store.setState({ layout, keyData }, "test");
+		store.setState({ layout, keyData, selectedLayout: nextLayout }, "test");
 	}
 };

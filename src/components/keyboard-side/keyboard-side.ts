@@ -9,7 +9,7 @@ export class KeyboardSide extends HTMLElement {
 
 	private _keyRows?: LayoutData["left"] = [];
 	private _keyCells?: KeysideData["left"] = [];
-	side: "left" | "right" | undefined;
+	side?: "left" | "right";
 
 	set keyCells(value) {
 		this._keyCells = value;

@@ -6,6 +6,6 @@ x-main-area {
 		display: grid;
 		grid-template-columns: 1fr auto 1fr;
 		place-items: center center;
-		background: ivory;
+		background: show;
 	}
 }
