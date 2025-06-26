@@ -61,11 +61,8 @@ export class MainArea extends HTMLElement {
 			"x-keyboard-side:nth-of-type(2)",
 		) as KeyboardSide;
 
-		if (leftSide) {
+		if (leftSide && rightSide) {
 			leftSide.data = { cells: keyData?.left, rows: layout?.left };
-		}
-
-		if (rightSide) {
 			rightSide.data = { cells: keyData?.right, rows: layout?.right };
 		}
 	}

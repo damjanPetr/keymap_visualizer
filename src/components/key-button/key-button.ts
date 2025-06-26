@@ -2,32 +2,40 @@ export class KeyButton extends HTMLElement {
 	constructor() {
 		super();
 	}
-	private _value?: string = "";
-	private _key = "";
+	value = "";
+	buttonKey = "";
 	desc = "";
+
 	height = 30;
 	width = 30;
-	hidden = false;
-	get key() {
-		return this._key;
-	}
-	set key(value: string) {
-		this._key = value;
-		this.connectedCallback();
-	}
 
-	get value() {
-		return this._value;
-	}
-	set value(value: string) {
-		this._value = value;
-		this.connectedCallback();
+	hidden = false;
+
+	observedAttributes = ["value", "desc", "hidden"];
+
+	attributeChangedCallback(name: string, _oldValue: string, newValue: string) {
+		if (name === "value") {
+			this.value = newValue;
+			this.render();
+		}
+		if (name === "desc") {
+			this.desc = newValue;
+			this.render();
+		}
+		if (name === "hidden") {
+			this.hidden = newValue === "true";
+			this.render();
+		}
 	}
 
 	connectedCallback() {
+		this.render();
+	}
+
+	render() {
 		this.innerHTML = `<div class="wrapper">
         <div class="key-hidden">${this.value}</div>
-        <div>${this.key}</div>
+        <div>${this.buttonKey}</div>
       </div>`;
 	}
 }
