@@ -62,13 +62,11 @@ export class MainArea extends HTMLElement {
 		) as KeyboardSide;
 
 		if (leftSide) {
-			leftSide.keyRows = layout.left;
-			leftSide.keyCells = keyData.left;
+			leftSide.data = { cells: keyData?.left, rows: layout?.left };
 		}
 
 		if (rightSide) {
-			rightSide.keyRows = layout.right;
-			rightSide.keyCells = keyData.right;
+			rightSide.data = { cells: keyData?.right, rows: layout?.right };
 		}
 	}
 }

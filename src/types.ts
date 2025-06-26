@@ -17,3 +17,5 @@ interface SideData {
 export interface KeysideData extends SideData {
 	context: Record<string, SideData>;
 }
+
+export type selectedLayoutName = "";

@@ -7,26 +7,14 @@ export class KeyboardSide extends HTMLElement {
 		super();
 	}
 
-	private _keyRows?: LayoutData["left"] = [];
-	private _keyCells?: KeysideData["left"] = [];
+	private keyRows?: LayoutData["left"] = [];
+	private keyCells?: KeysideData["left"] = [];
 	side?: "left" | "right";
 
-	set keyCells(value) {
-		this._keyCells = value;
+	set data(value: { cells: KeysideData["left"]; rows: LayoutData["left"] }) {
+		this.keyCells = value.cells;
+		this.keyRows = value.rows;
 		this.connectedCallback();
-	}
-
-	get keyCells() {
-		return this._keyCells;
-	}
-
-	set keyRows(value) {
-		this._keyRows = value;
-		this.connectedCallback();
-	}
-
-	get keyRows() {
-		return this._keyRows;
 	}
 
 	generateKeyButton(layoutKeyValue: string): KeyButton {
@@ -43,14 +31,16 @@ export class KeyboardSide extends HTMLElement {
 		}
 		return kb;
 	}
-
 	connectedCallback() {
+		this.render();
+	}
+	render() {
 		this.innerHTML = `
-		<div class="rows">
-    </div>
-    `;
+    <div class="rows">
+       </div>
+       `;
 
-		for (const keyRow of this.keyRows) {
+		for (const keyRow of this?.keyRows ?? []) {
 			const rowEl = document.createElement("div");
 			for (const key of keyRow) {
 				const kb = this.generateKeyButton(key);
