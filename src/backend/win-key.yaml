@@ -1,22 +1,22 @@
 left:
   - key: "`"
-    value: "ALT+F4"
-    desc: 192
+    value: "❌"
+    desc: ALT+F4
   - key: "1"
-    value: "Select win taskbar 1"
-    desc: 192
+    value: "1️⃣"
+    desc: "Select win taskbar 1"
   - key: "2"
-    value: "Select win taskbar 2"
-    desc: 49
+    value: "2️⃣"
+    desc: "Select win taskbar 2"
   - key: "3"
-    value: "Select win taskbar 3"
-    desc: 50
+    value: "3️⃣"
+    desc: "Select win taskbar 3"
   - key: "4"
-    value: "Select win taskbar 4"
-    desc: 51
+    value: "4️⃣"
+    desc: "Select win taskbar 4"
   - key: "5"
-    value: "Select win taskbar 5"
-    desc: 52
+    value: "5️⃣"
+    desc: "Select win taskbar 5"
   - key: "\\"
     value: 220
     desc: ""

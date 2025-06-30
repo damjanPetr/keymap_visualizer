@@ -1,7 +1,7 @@
 left:
   - key: "`"
     value: "insert at previous"
-    desc: ""
+    desc: "🐛"
   - key: "1"
     value: ""
     desc: ""

@@ -1,4 +1,6 @@
 export class KeyButton extends HTMLElement {
+	static observedAttributes = ["value", "desc", "hidden"];
+
 	constructor() {
 		super();
 	}
@@ -6,24 +8,23 @@ export class KeyButton extends HTMLElement {
 	buttonKey = "";
 	desc = "";
 
-	height = 30;
-	width = 30;
-
-	hidden = false;
-
-	observedAttributes = ["value", "desc", "hidden"];
-
 	attributeChangedCallback(name: string, _oldValue: string, newValue: string) {
+		console.log("%c name", "background: teal", {
+			name,
+			newValue,
+			oldValue: _oldValue,
+		});
+		if (name === "key") {
+			this.buttonKey = newValue;
+			this.render();
+		}
+
 		if (name === "value") {
 			this.value = newValue;
 			this.render();
 		}
 		if (name === "desc") {
 			this.desc = newValue;
-			this.render();
-		}
-		if (name === "hidden") {
-			this.hidden = newValue === "true";
 			this.render();
 		}
 	}
@@ -34,8 +35,8 @@ export class KeyButton extends HTMLElement {
 
 	render() {
 		this.innerHTML = `<div class="wrapper">
-        <div class="key-hidden">${this.value}</div>
-        <div>${this.buttonKey}</div>
+        <div class="key-hidden">${this.desc}</div>
+        <div>${this.value}</div>
       </div>`;
 	}
 }
