@@ -24,16 +24,16 @@ left:
     value: 188
     desc: "Open %APPDATA%"
   - key: ","
-    value: 190
+    value: "📁"
     desc: "Open Downloads"
   - key: "."
-    value: 80
+    value: "🔔"
     desc: "Open Emoji picker"
   - key: "p"
-    value: 89
+    value: "/obsidian"
     desc: "Open Obsidian"
   - key: "y"
-    value: 89
+    value: "🔖"
     desc: "Open Obsidian Bookmarks"
   - key: "DEL"
     value: 89
@@ -42,23 +42,23 @@ left:
     value: 79
     desc: "Open Action Center"
   - key: "o"
-    value: 69
+    value: "/mpv"
     desc: "Open MPV Player"
   - key: "e"
-    value: 85
+    value: "/zed"
     desc: "Open Zed"
   - key: "u"
-    value: 73
+    value: "/brave"
     desc: "Open Brave"
   - key: "i"
-    value: 81
-    desc: ""
+    value: "/excel"
+    desc: "Open Excel"
   - key: "L-SHIFT"
-    value: 891
+    value: "⏫"
     desc: ""
   - key: ";"
-    value: 186
-    desc: ""
+    value: "/freecad"
+    desc: "Open FreeCAD"
   - key: "q"
     value: 81
     desc: ""
@@ -66,11 +66,11 @@ left:
     value: 74
     desc: ""
   - key: "k"
-    value: 75
-    desc: ""
+    value: "/calib-reader"
+    desc: "Open Calibre Reader"
   - key: "x"
-    value: 76
-    desc: ""
+    value: "⚙"
+    desc: "Open windows start options menu"
 
   - key: "ESC"
     value: 97
@@ -93,89 +93,89 @@ left:
 
 right:
   - key: "6"
-    value: "Select win taskbar 6"
-    desc: 53
+    value: "6️⃣"
+    desc: "Select win taskbar 6"
   - key: "7"
-    value: "Select win taskbar 7"
-    desc: 54
+    value: "7️⃣"
+    desc: "Select win taskbar 7"
   - key: "8"
-    value: "Select win taskbar 8"
-    desc: 55
+    value: "8️⃣"
+    desc: "Select win taskbar 8"
   - key: "9"
-    value: "Select win taskbar 9"
-    desc: 56
+    value: "9️⃣"
+    desc: "Select win taskbar 9"
   - key: "0"
-    value: "Select win taskbar last"
-    desc: 57
+    value: "0️⃣"
+    desc: "Select win taskbar last"
   - key: "="
-    value: 187
+    value: "🚫"
     desc: ""
   - key: "f"
     value: 70
     desc: ""
   - key: "g"
-    value: 67
-    desc: ""
+    value: "📂"
+    desc: "focus file explorer windows"
   - key: "c"
-    value: 82
-    desc: ""
+    value: "📂"
+    desc: "close file explorer windows"
   - key: "r"
-    value: 76
-    desc: ""
+    value: ""
+    desc: "windows run"
   - key: "l"
     value: 191
-    desc: ""
+    desc: "windows lock"
   - key: "/"
-    value: 189
+    value: ""
     desc: ""
   - key: "d"
-    value: 68
-    desc: ""
+    value: "💻"
+    desc: "windows desktop"
   - key: "h"
-    value: 72
-    desc: ""
+    value: "🖥"
+    desc: "Open Terminal"
   - key: "t"
-    value: 84
+    value: ""
     desc: ""
   - key: "n"
-    value: 78
+    value: ""
     desc: ""
   - key: "s"
-    value: 83
-    desc: ""
+    value: "🔍"
+    desc: "Windows Search"
   - key: "-"
-    value: 189
+    value: ""
     desc: ""
   - key: "b"
-    value: 66
+    value: ""
     desc: ""
   - key: "m"
-    value: 77
-    desc: ""
+    value: "/calibre"
+    desc: "Open Calibre"
   - key: "w"
-    value: 87
-    desc: ""
+    value: "/fdm"
+    desc: "Open Free Download Manager"
   - key: "v"
-    value: 86
-    desc: ""
+    value: "📋"
+    desc: "Open Clipboard Manager"
   - key: "z"
-    value: 90
-    desc: ""
+    value: "/activity"
+    desc: "Open Time Tracker"
   - key: "R-SHIFT"
-    value: 99
+    value: "⏫"
     desc: ""
   - key: "CAPS"
-    value: 98
+    value: ""
     desc: ""
   - key: "LAY 1"
-    value: 91
+    value: ""
     desc: ""
   - key: "TAB"
-    value: 17
+    value: ""
     desc: ""
   - key: "ENTER"
-    value: 18
+    value: ""
     desc: ""
   - key: "SPACE"
-    value: 16
+    value: ""
     desc: ""

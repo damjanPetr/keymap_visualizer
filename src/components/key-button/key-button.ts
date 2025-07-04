@@ -9,11 +9,6 @@ export class KeyButton extends HTMLElement {
 	desc = "";
 
 	attributeChangedCallback(name: string, _oldValue: string, newValue: string) {
-		console.log("%c name", "background: teal", {
-			name,
-			newValue,
-			oldValue: _oldValue,
-		});
 		if (name === "key") {
 			this.buttonKey = newValue;
 			this.render();
@@ -34,9 +29,20 @@ export class KeyButton extends HTMLElement {
 	}
 
 	render() {
-		this.innerHTML = `<div class="wrapper">
+		let html = "";
+		let classList = "";
+		if (this.value === "") {
+			classList += "empty";
+		}
+		if (this.value[0] === "/") {
+			html += `<img src="/icons/${this.value}.png" />`;
+		} else {
+			html += `<div>${this.value}</div>`;
+		}
+
+		this.innerHTML = `<div class="wrapper ${classList}">
         <div class="key-hidden">${this.desc}</div>
-        <div>${this.value}</div>
+        ${html}
       </div>`;
 	}
 }

@@ -21,6 +21,10 @@ x-key-button {
 		}
 	}
 
+	img {
+		width: 40px;
+	}
+
 	.key-hidden {
 		opacity: 0;
 		outline: 0.25rem solid mediumorchid;
@@ -35,5 +39,8 @@ x-key-button {
 		width: 600%;
 		padding: 0.75rem;
 		font-size: 1.5rem;
+	}
+	.empty {
+		background-color: lavenderblush !important;
 	}
 }
