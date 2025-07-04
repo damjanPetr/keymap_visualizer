@@ -1,3 +1,5 @@
+import type { layoutsArray } from "./utils/consts";
+
 export interface LayoutData {
 	left: string[][];
 	right: string[][];
@@ -9,13 +11,10 @@ interface Cell {
 	desc: string;
 }
 
-interface SideData {
+export interface KeysideData {
+	context: Record<string, KeysideData>;
 	left: Cell[];
 	right: Cell[];
 }
 
-export interface KeysideData extends SideData {
-	context: Record<string, SideData>;
-}
-
-export type selectedLayoutName = "";
+export type SelectedLayout = (typeof layoutsArray)[number]["value"];

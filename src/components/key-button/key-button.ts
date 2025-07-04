@@ -35,7 +35,7 @@ export class KeyButton extends HTMLElement {
 			classList += "empty";
 		}
 		if (this.value[0] === "/") {
-			html += `<img src="/icons/${this.value}.png" />`;
+			html += `<img src="icons/${this.value}.png" />`;
 		} else {
 			html += `<div>${this.value}</div>`;
 		}

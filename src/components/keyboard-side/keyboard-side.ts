@@ -1,15 +1,13 @@
 import "../key-button/key-button";
 import type { KeysideData, LayoutData } from "../../types";
-import { KeyButton } from "../key-button/key-button";
 
 export class KeyboardSide extends HTMLElement {
 	constructor() {
 		super();
 	}
-
+	side?: "left" | "right";
 	private rows?: LayoutData["left"] = [];
 	private cells?: KeysideData["left"] = [];
-	side?: "left" | "right";
 
 	set data(value: { cells: KeysideData["left"]; rows: LayoutData["left"] }) {
 		this.cells = value.cells;
@@ -21,7 +19,6 @@ export class KeyboardSide extends HTMLElement {
 		this.render();
 	}
 	render() {
-		console.log("left", { cells: this.cells, rows: this.rows });
 		this.innerHTML = `
     <div class="rows">
     ${this.rows

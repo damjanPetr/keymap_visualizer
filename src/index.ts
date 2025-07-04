@@ -4,6 +4,7 @@ import { registerKeyboardSide } from "./components/keyboard-side/keyboard-side";
 import { registerMainArea } from "./components/main-area/main-area";
 import { registerMapContext } from "./components/map-context/map-context";
 import { registerRouter } from "./components/my-router/my-router";
+import type { SelectedLayout } from "./types";
 import { moveLayout } from "./utils/helpers";
 
 const app = () => {
@@ -18,7 +19,8 @@ const app = () => {
 document.addEventListener("DOMContentLoaded", app);
 
 document.addEventListener("keydown", async (event) => {
-	const currentLayout = document.querySelector("select")?.value;
+	const currentLayout = document.querySelector("select")
+		?.value as SelectedLayout;
 	if (!currentLayout) return;
 	switch (event.key) {
 		case "Escape": {

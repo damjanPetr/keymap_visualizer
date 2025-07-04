@@ -1,5 +1,5 @@
 import { store } from "../../store/keyStore";
-import type { KeysideData } from "../../types";
+import type { KeysideData, SelectedLayout } from "../../types";
 
 export class MapContext extends HTMLElement {
 	constructor() {
@@ -13,15 +13,16 @@ export class MapContext extends HTMLElement {
 
 	set data(value) {
 		if (value) this._data = value;
-		this.connectedCallback();
+		this.render();
 	}
 
 	adoptedCallback() {}
 
 	connectedCallback() {
-		if (this._data) {
-			console.log("%c ", "background: yellow", Object.keys(this._data));
-		}
+		this.render();
+	}
+
+	render() {
 		this.innerHTML = `
       <div>
         <p>${Object.keys(this?._data).map((item) => `<button value="${item}">${item}</button>`)}</p>
@@ -31,10 +32,14 @@ export class MapContext extends HTMLElement {
 		const button = this.querySelector("button");
 		if (button) {
 			button.addEventListener("click", () => {
+				const value = button.value as SelectedLayout;
 				const data = store.getState("test");
-				console.log(button.value, data.keyData.context[button.value]);
 				store.setState(
-					{ layout: data.layout, keyData: data.keyData?.context[button.value] },
+					{
+						layout: data.layout,
+						keyData: data.keyData?.context[value],
+						selectedLayout: value,
+					},
 					"test",
 				);
 			});

@@ -1,19 +1,17 @@
-import type { KeysideData, LayoutData } from "../types";
+import type { KeysideData, LayoutData, SelectedLayout } from "../types";
 
-interface Data {
+interface StoreValues {
 	layout: LayoutData;
 	keyData: KeysideData;
-	selectedLayout: string;
+	selectedLayout?: SelectedLayout;
 }
 
-interface State {
-	test: Data;
-	[key: symbol]: unknown;
+interface Store {
+	test: StoreValues;
 }
 
-const state: State = {
+const state: Store = {
 	test: {
-		selectedLayout: "obsidian",
 		layout: {
 			left: [],
 			right: [],
@@ -27,29 +25,26 @@ const state: State = {
 };
 
 type Stores = keyof typeof state;
-type Listener<T> = (value: T) => void;
+type Listener = (value: unknown) => void;
 
-const listeners: Record<string, Array<Listener<unknown>>> = {
+const listeners: Record<Stores, Array<Listener>> = {
 	test: [],
 };
 
 const store = {
-	getState<T extends Stores>(store: T) {
+	getState(store: Stores) {
 		return state[store];
 	},
-	setState<T extends Stores>(value: (typeof state)[T], store: T) {
+	setState(value: StoreValues, store: Stores) {
 		state[store] = value;
 		for (const listener of listeners[store]) {
 			listener(value);
 		}
 	},
-	subscribe<T>(cb: Listener<[T]>, store: string): void {
-		listeners[store].push(cb as Listener<unknown>);
+	subscribe(cb: Listener, store: Stores): void {
+		listeners[store].push(cb);
 	},
-	unsubscribe<T extends Stores>(
-		cb: Listener<(typeof state)[T]>,
-		store: T,
-	): void {
+	unsubscribe(cb: Listener, store: Stores): void {
 		const index = listeners[store].findIndex((item) => item === cb);
 		if (index !== -1) {
 			listeners[store].splice(index, 1);

@@ -1,41 +1,37 @@
 import { changeLoadout, fetchKeyLayout } from "../../fetch";
 import { store } from "../../store/keyStore";
-import type { KeysideData, LayoutData } from "../../types";
+import type { KeysideData, LayoutData, SelectedLayout } from "../../types";
 import { layoutsArray } from "../../utils/helpers";
 import type { KeyboardSide } from "../keyboard-side/keyboard-side";
 import "../map-context/map-context";
 import type { MapContext } from "../map-context/map-context";
 
-interface renderProps {
-	layout: LayoutData;
-	keyData: KeysideData;
-	selectedLayout: string;
-}
 export class MainArea extends HTMLElement {
 	constructor() {
 		super();
 	}
-	mapData?: KeysideData;
+	keyData?: KeysideData;
+	selectedLayout?: SelectedLayout;
+	layout?: LayoutData;
 
 	async connectedCallback() {
-		store.subscribe<typeof this.render>(this.render.bind(this), "test");
-
-		const layout = await fetchKeyLayout("main");
+		store.subscribe(this.render.bind(this), "test");
 		const keyData = await changeLoadout("win-key");
-
-		store.setState({ layout, keyData, selectedLayout: "obsidian" }, "test");
-
-		const select = this.querySelector("select");
-		select?.addEventListener("change", async (e) => {
-			if (e.target instanceof HTMLSelectElement) {
-				const value = e.target.value;
-				const keyData = await changeLoadout(value);
-				store.setState({ layout, keyData, selectedLayout: value }, "test");
-			}
-		});
+		const layout = await fetchKeyLayout("main");
+		store.setState(
+			{
+				layout,
+				keyData,
+				selectedLayout: "win-key",
+			},
+			"test",
+		);
 	}
 
-	render({ layout, keyData, selectedLayout }: renderProps) {
+	render() {
+		const { keyData, layout, selectedLayout } = store.getState("test");
+		console.log("%c ", "background: blue", { keyData, layout, selectedLayout });
+
 		this.innerHTML = `
       <x-map-context></x-map-context>
       <div class="keyboards-container">
@@ -51,6 +47,18 @@ export class MainArea extends HTMLElement {
            <x-keyboard-side side="right"></x-keyboard-side>
       </div>`;
 
+		const select = this.querySelector("select");
+
+		select?.addEventListener("change", async (e) => {
+			if (e.target instanceof HTMLSelectElement) {
+				const value = e.target.value as SelectedLayout;
+				const keyData = await changeLoadout(value);
+				if (this.layout) {
+					store.setState({ layout, keyData, selectedLayout: value }, "test");
+				}
+			}
+		});
+
 		const context = this.querySelector("x-map-context") as MapContext;
 		context.data = keyData?.context;
 
@@ -60,10 +68,12 @@ export class MainArea extends HTMLElement {
 		const rightSide = this.querySelector(
 			"x-keyboard-side:nth-of-type(2)",
 		) as KeyboardSide;
-
 		if (leftSide && rightSide) {
-			leftSide.data = { cells: keyData?.left, rows: layout?.left };
-			rightSide.data = { cells: keyData?.right, rows: layout?.right };
+			leftSide.data = { cells: keyData.left, rows: layout.left };
+			rightSide.data = {
+				cells: keyData?.right,
+				rows: layout?.right,
+			};
 		}
 	}
 }
