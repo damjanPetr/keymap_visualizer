@@ -10,14 +10,17 @@ x-key-button {
 		height: 80px;
 		background: lavender;
 		font-size: 1.5rem;
-		border: 1px solid black;
-		border-radius: var(--bdrs-main);
+		border: 4px inset blue;
+
+		border-radius: var(--bdrs-big);
 
 		&:hover {
-			position: relative;
+			transition: transform 100ms ease-in-out;
 			.key-hidden {
-				opacity: 1;
+				display: block;
 			}
+			border: 4px inset mediumorchid;
+			transform: scale(1.1), translateX(10px);
 		}
 	}
 
@@ -26,21 +29,20 @@ x-key-button {
 	}
 
 	.key-hidden {
-		opacity: 0;
-		outline: 0.25rem solid mediumorchid;
-		transition: all 100ms ease-in;
-		border-radius: var(--bdrs-main);
+		display: none;
+		border: 8px inset indianred;
+		border-radius: var(--bdrs-normal);
+
 		position: absolute;
-		bottom: calc(100% + 1rem);
-		left: -50%;
-		height: 100%;
+		max-width: 30vw;
 		text-align: center;
 		background: linen;
-		width: 600%;
 		padding: 0.75rem;
-		font-size: 1.5rem;
 	}
 	.empty {
-		background-color: lavenderblush !important;
+		&:hover {
+			border: 4px inset darkgray;
+		}
+		background-color: gainsboro;
 	}
 }

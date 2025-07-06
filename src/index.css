@@ -10,20 +10,24 @@
 header {
 	background: indigo;
 	height: 50px;
-	font: 2rem "Georgia", sans-serif;
+	font:
+		2rem "Georgia",
+		sans-serif;
 	color: azure;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
 	&:hover {
-		text-underline-offset: .25rem;
+		text-underline-offset: 0.25rem;
 		text-decoration: underline;
 	}
 
 	navigation {
-		font: 1rem "Courier New", sans-serif;
-		border-radius: var(--bdrs-main);
+		font:
+			1rem "Courier New",
+			sans-serif;
+		border-radius: var(--bdrs-normal);
 		flex: 0 1 50%;
 		a {
 			transition: color 0.2s;
@@ -35,5 +39,5 @@ header {
 }
 
 main {
-	min-height: calc(100vh - 50px) !important;
+	min-height: calc(100vh - 50px);
 }

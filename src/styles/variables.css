@@ -1,5 +1,8 @@
 :root {
-	--bdrs-main: 8px;
+	--bdrs-small: 2px;
+	--bdrs-normal: 4px;
+	--bdrs-big: 8px;
+
 	--space-small: 0.5rem;
 	--space-medium: 1rem;
 }
