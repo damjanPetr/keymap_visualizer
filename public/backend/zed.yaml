@@ -18,7 +18,7 @@ left:
     value: "go alternate blackets/braces"
     desc: ""
   - key: "\\"
-    value: 220
+    value: ""
     desc: ""
   - key: "'"
     value: "go to mark"
@@ -54,7 +54,7 @@ left:
     value: "prev word end"
     desc: ""
   - key: "L-SHIFT"
-    value: 891
+    value: ""
     desc: ""
   - key: ";"
     value: "comment code"
@@ -79,16 +79,16 @@ left:
     value: "backspace"
     desc: ""
   - key: "L-WIN"
-    value: 91
+    value: ""
     desc: ""
   - key: "L-CTRL"
-    value: 17
+    value: ""
     desc: ""
   - key: "L-ALT"
-    value: 18
+    value: ""
     desc: ""
   - key: "L-SHIFT"
-    value: 16
+    value: ""
     desc: ""
 
 right:
@@ -162,19 +162,19 @@ right:
     value: "leader key"
     desc: ""
   - key: "R-SHIFT"
-    value: 99
+    value: ""
     desc: ""
   - key: "CAPS"
-    value: 98
+    value: ""
     desc: ""
   - key: "LAY 1"
-    value: 91
+    value: ""
     desc: ""
   - key: "TAB"
-    value: 17
+    value: ""
     desc: ""
   - key: "ENTER"
-    value: 18
+    value: ""
     desc: ""
   - key: "SPACE"
     value: "leader key"
