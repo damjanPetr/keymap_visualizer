@@ -9,6 +9,7 @@ interface Cell {
 	key: string;
 	value: string;
 	desc: string;
+	voiceCommand: string;
 }
 
 export interface KeysideData {

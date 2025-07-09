@@ -7,6 +7,7 @@ export class KeyButton extends HTMLElement {
 	value = "";
 	buttonKey = "";
 	desc = "";
+	voiceCommand = "";
 
 	attributeChangedCallback(name: string, _oldValue: string, newValue: string) {
 		if (name === "key") {
@@ -40,8 +41,14 @@ export class KeyButton extends HTMLElement {
 			html += `<div>${this.value}</div>`;
 		}
 
+		const voiceCommand = this.voiceCommand
+			? `<div class="voice-command">${this.voiceCommand}</div>`
+			: "";
+
+		console.log("%c voiceCommand", "background: red", { voiceCommand });
 		this.innerHTML = `<div class="wrapper ${classList}">
         <div class="key-hidden">${this.desc}</div>
+        ${voiceCommand}
         ${html}
       </div>`;
 	}

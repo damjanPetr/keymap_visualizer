@@ -26,7 +26,12 @@ export class KeyboardSide extends HTMLElement {
 				const elements = row.map((rowCell) => {
 					const selected = this.cells?.find((cell) => cell.key === rowCell);
 					if (selected?.key) {
-						return `<x-key-button value="${selected.value}" desc="${selected.desc}" key="${selected.key}"></x-key-button>`;
+						return `<x-key-button
+						value="${selected.value}"
+						desc="${selected.desc}"
+						key="${selected.key}"
+						${selected.voiceCommand ? `voiceCommand="${selected.voiceCommand}"` : ""}>
+						</x-key-button>`;
 					}
 					return `<x-key-button value="1" desc="no value" key="\\"></x-key-button>`;
 				});
