@@ -1,7 +1,7 @@
-import { changeLoadout, fetchKeyLayout } from "../fetch";
 import { store } from "../store/keyStore";
 import type { SelectedLayout } from "../types";
 import { layoutsArray } from "./consts";
+import { changeLoadout, fetchKeyLayout } from "./fetch";
 
 export const moveLayout = async (
 	side: "up" | "down",

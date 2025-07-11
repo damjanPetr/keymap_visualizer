@@ -1,0 +1,25 @@
+x-active-context {
+	background: radial-gradient(at 50%, darkorchid, magenta);
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		background: radial-gradient(at 50%, darkorchid, magenta);
+		filter: brightness(1.2);
+	}
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	h1 {
+		font-size: 2rem;
+	}
+	p {
+		font-size: 2rem;
+	}
+	button {
+		font: bold 2rem / 1.5 sans-serif;
+		border-bottom: 5px dashed snow;
+		border-radius: var(--bdrs-big);
+		color: white;
+		padding: 0.5rem 1rem;
+	}
+}

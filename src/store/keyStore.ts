@@ -1,8 +1,13 @@
-import type { KeysideData, LayoutData, SelectedLayout } from "../types";
+import type {
+	ContextItem,
+	KeysideData,
+	LayoutData,
+	SelectedLayout,
+} from "../types";
 
 interface StoreValues {
 	layout: LayoutData;
-	keyData: KeysideData;
+	keyData: KeysideData | ContextItem[];
 	selectedLayout?: SelectedLayout;
 }
 
@@ -19,7 +24,7 @@ const state: Store = {
 		keyData: {
 			left: [],
 			right: [],
-			context: {},
+			context: [],
 		},
 	},
 };

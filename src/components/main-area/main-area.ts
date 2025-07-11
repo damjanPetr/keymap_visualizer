@@ -1,10 +1,9 @@
-import { changeLoadout, fetchKeyLayout } from "../../fetch";
+import { changeLoadout, fetchKeyLayout } from "../../utils/fetch";
 import { store } from "../../store/keyStore";
 import type { KeysideData, LayoutData, SelectedLayout } from "../../types";
 import { layoutsArray } from "../../utils/helpers";
 import type { KeyboardSide } from "../keyboard-side/keyboard-side";
-import "../map-context/map-context";
-import type { MapContext } from "../map-context/map-context";
+import type { MapContext } from "../active-context/active-context";
 
 export class MainArea extends HTMLElement {
 	constructor() {
@@ -33,7 +32,7 @@ export class MainArea extends HTMLElement {
 		console.log("%c ", "background: blue", { keyData, layout, selectedLayout });
 
 		this.innerHTML = `
-      <x-map-context></x-map-context>
+      <x-active-context></x-active-context>
       <div class="keyboards-container">
             <x-keyboard-side side="left"></x-keyboard-side>
                <select value=${selectedLayout}>
@@ -58,8 +57,8 @@ export class MainArea extends HTMLElement {
 				}
 			}
 		});
-
-		const context = this.querySelector("x-map-context") as MapContext;
+		console.log("%c ", "background: black", { keyData });
+		const context = this.querySelector("x-active-context") as MapContext;
 		context.data = keyData?.context;
 
 		const leftSide = this.querySelector(

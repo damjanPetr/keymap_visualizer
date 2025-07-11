@@ -5,14 +5,15 @@
 @import url("./components/key-button/key-button.css");
 @import url("./components/keyboard-side/keyboard-side.css");
 @import url("./components/main-area/main-area.css");
-@import url("./components/map-context/map-context.css");
+@import url("./components/active-context/active-context.css");
 
 header {
 	background: indigo;
 	height: 50px;
 	font:
-		2rem "Georgia",
+		2rem "Courier New",
 		sans-serif;
+
 	color: azure;
 	display: flex;
 	justify-content: center;
@@ -24,10 +25,6 @@ header {
 	}
 
 	navigation {
-		font:
-			1rem "Courier New",
-			sans-serif;
-		border-radius: var(--bdrs-normal);
 		flex: 0 1 50%;
 		a {
 			transition: color 0.2s;

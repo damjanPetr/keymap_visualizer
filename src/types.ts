@@ -5,15 +5,20 @@ export interface LayoutData {
 	right: string[][];
 }
 
-interface Cell {
+export interface Cell {
 	key: string;
 	value: string;
 	desc: string;
 	voiceCommand: string;
 }
 
+export interface ContextItem extends LayoutData {
+	key: string;
+	name: string;
+}
+
 export interface KeysideData {
-	context: Record<string, KeysideData>;
+	context: ContextItem[];
 	left: Cell[];
 	right: Cell[];
 }

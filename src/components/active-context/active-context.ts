@@ -6,16 +6,6 @@ export class MapContext extends HTMLElement {
 		super();
 	}
 
-	_data: KeysideData["context"] = {};
-	get data() {
-		return this._data;
-	}
-
-	set data(value) {
-		if (value) this._data = value;
-		this.render();
-	}
-
 	adoptedCallback() {}
 
 	connectedCallback() {
@@ -23,22 +13,25 @@ export class MapContext extends HTMLElement {
 	}
 
 	render() {
+		const data = store.getState("test");
+		console.log("%c ", "background: yellow", { heh: data });
+
 		this.innerHTML = `
       <div>
-        <p>${Object.keys(this?._data).map((item) => `<button value="${item}">${item}</button>`)}</p>
+        <p>${data.keyData.context.map((item) => `<button value="${item.key}">${item.name}</button>`)}</p>
       </div>
     `;
 
 		const button = this.querySelector("button");
 		if (button) {
 			button.addEventListener("click", () => {
-				const value = button.value as SelectedLayout;
-				const data = store.getState("test");
+				const value = button.value;
+				if (!value) return;
 				store.setState(
 					{
 						layout: data.layout,
-						keyData: data.keyData?.context[value],
-						selectedLayout: value,
+						keyData: data.keyData?.context.find((item) => item.key === value),
+						selectedLayout: data.selectedLayout,
 					},
 					"test",
 				);
@@ -48,7 +41,7 @@ export class MapContext extends HTMLElement {
 }
 
 const registerMapContext = () => {
-	customElements.define("x-map-context", MapContext);
+	customElements.define("x-active-context", MapContext);
 };
 
 export { registerMapContext };

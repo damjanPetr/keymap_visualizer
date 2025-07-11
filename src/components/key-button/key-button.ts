@@ -45,7 +45,6 @@ export class KeyButton extends HTMLElement {
 			? `<div class="voice-command">${this.voiceCommand}</div>`
 			: "";
 
-		console.log("%c voiceCommand", "background: red", { voiceCommand });
 		this.innerHTML = `<div class="wrapper ${classList}">
         <div class="key-hidden">${this.desc}</div>
         ${voiceCommand}

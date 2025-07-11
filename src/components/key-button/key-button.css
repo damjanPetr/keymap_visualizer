@@ -50,15 +50,15 @@ x-key-button {
 	}
 	.voice-command {
 		display: none;
-		border: 8px inset indigo;
-		border-radius: var(--bdrs-normal);
-
-		animation: 1s change infinite;
 		position: absolute;
+		border: 8px inset white;
+		animation: 1s change infinite;
 		max-width: 30vw;
 		text-align: center;
-		background: linen;
 		padding: 0.75rem;
+		background-color:
+			radial-gradient(circle at center, snow, indigo),
+			radial-gradient(circle at center, teal, white);
 	}
 }
 
