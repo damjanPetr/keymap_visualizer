@@ -7,26 +7,31 @@ import type {
 
 interface StoreValues {
 	layout: LayoutData;
-	keyData: KeysideData | ContextItem[];
+	keyData: KeysideData | ContextItem;
 	selectedLayout?: SelectedLayout;
+	selectedContext?: string;
 }
 
 interface Store {
 	test: StoreValues;
+	main: StoreValues;
 }
 
-const state: Store = {
-	test: {
-		layout: {
-			left: [],
-			right: [],
-		},
-		keyData: {
-			left: [],
-			right: [],
-			context: [],
-		},
+const emptyStoreValues: StoreValues = {
+	layout: {
+		left: [],
+		right: [],
 	},
+	keyData: {
+		left: [],
+		right: [],
+		context: [],
+	},
+};
+
+const state: Store = {
+	test: emptyStoreValues,
+	main: emptyStoreValues,
 };
 
 type Stores = keyof typeof state;
@@ -34,6 +39,7 @@ type Listener = (value: unknown) => void;
 
 const listeners: Record<Stores, Array<Listener>> = {
 	test: [],
+	main: [],
 };
 
 const store = {

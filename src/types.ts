@@ -12,15 +12,18 @@ export interface Cell {
 	voiceCommand: string;
 }
 
-export interface ContextItem extends LayoutData {
+export interface ContextItem {
 	key: string;
 	name: string;
+	left: Cell[];
+	right: Cell[];
 }
 
 export interface KeysideData {
 	context: ContextItem[];
 	left: Cell[];
 	right: Cell[];
+	selectedContext?: string;
 }
 
 export type SelectedLayout = (typeof layoutsArray)[number]["value"];

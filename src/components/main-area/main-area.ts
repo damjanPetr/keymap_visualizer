@@ -23,6 +23,14 @@ export class MainArea extends HTMLElement {
 				keyData,
 				selectedLayout: "win-key",
 			},
+			"main",
+		);
+		store.setState(
+			{
+				layout,
+				keyData,
+				selectedLayout: "win-key",
+			},
 			"test",
 		);
 	}
@@ -57,9 +65,6 @@ export class MainArea extends HTMLElement {
 				}
 			}
 		});
-		console.log("%c ", "background: black", { keyData });
-		const context = this.querySelector("x-active-context") as MapContext;
-		context.data = keyData?.context;
 
 		const leftSide = this.querySelector(
 			"x-keyboard-side:nth-of-type(1)",

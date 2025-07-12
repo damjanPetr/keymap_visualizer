@@ -1,5 +1,4 @@
 import { store } from "../../store/keyStore";
-import type { KeysideData, SelectedLayout } from "../../types";
 
 export class MapContext extends HTMLElement {
 	constructor() {
@@ -13,28 +12,49 @@ export class MapContext extends HTMLElement {
 	}
 
 	render() {
-		const data = store.getState("test");
-		console.log("%c ", "background: yellow", { heh: data });
+		const data = store.getState("main");
+		if ("key" in data.keyData) return;
+
+		const newContext = data.keyData.context.map(
+			(item) =>
+				`<button class="selectContextButton" value="${item.key}">${item.name}</button>`,
+		);
 
 		this.innerHTML = `
-      <div>
-        <p>${data.keyData.context.map((item) => `<button value="${item.key}">${item.name}</button>`)}</p>
-      </div>
+    		<button class="goUpButton">Go up</button>
+        <p>${newContext.join("")}</p>
     `;
 
-		const button = this.querySelector("button");
+		const button = this.querySelector(".selectContextButton");
+		const goUpButton = this.querySelector(".goUpButton");
+
+		if (goUpButton) {
+			if (data.keyData.selectedContext) return;
+			goUpButton.addEventListener("click", () => {
+				store.setState({ ...data }, "test");
+			});
+		}
+
 		if (button) {
 			button.addEventListener("click", () => {
-				const value = button.value;
-				if (!value) return;
-				store.setState(
-					{
-						layout: data.layout,
-						keyData: data.keyData?.context.find((item) => item.key === value),
-						selectedLayout: data.selectedLayout,
-					},
-					"test",
+				if (!(button instanceof HTMLButtonElement)) return;
+				if (!button.value) return;
+				const { keyData, selectedLayout, layout } = data;
+				if ("key" in keyData) return;
+
+				const context = keyData.context.find(
+					(item) => item.key === button.value,
 				);
+
+				if (context)
+					store.setState(
+						{
+							layout: layout,
+							keyData: { ...context, selectedContext: context.key },
+							selectedLayout: selectedLayout,
+						},
+						"test",
+					);
 			});
 		}
 	}
