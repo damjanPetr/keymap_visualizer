@@ -9,7 +9,6 @@ interface StoreValues {
 	layout: LayoutData;
 	keyData: KeysideData | ContextItem;
 	selectedLayout?: SelectedLayout;
-	selectedContext?: string;
 }
 
 interface Store {

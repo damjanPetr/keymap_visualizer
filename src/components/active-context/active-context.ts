@@ -13,19 +13,27 @@ export class MapContext extends HTMLElement {
 
 	render() {
 		const data = store.getState("main");
+		const testData = store.getState("main");
+		if (testData.selectedLayout !== data.selectedLayout) {
+		}
 		if ("key" in data.keyData) return;
 
-		const newContext = data.keyData.context.map(
+		const newContext = data.keyData?.context?.map(
 			(item) =>
 				`<button class="selectContextButton" value="${item.key}">${item.name}</button>`,
 		);
-
+		if (!data.keyData.context) {
+			this.innerHTML = `
+        <p class="noContext">No context available</p>
+    `;
+			return;
+		}
 		this.innerHTML = `
     		<button class="goUpButton">Go up</button>
         <p>${newContext.join("")}</p>
     `;
 
-		const button = this.querySelector(".selectContextButton");
+		const button = this.querySelectorAll(".selectContextButton");
 		const goUpButton = this.querySelector(".goUpButton");
 
 		if (goUpButton) {
@@ -35,26 +43,28 @@ export class MapContext extends HTMLElement {
 			});
 		}
 
-		if (button) {
-			button.addEventListener("click", () => {
-				if (!(button instanceof HTMLButtonElement)) return;
-				if (!button.value) return;
-				const { keyData, selectedLayout, layout } = data;
-				if ("key" in keyData) return;
+		if (button.length) {
+			button.forEach((btn) => {
+				if (!(btn instanceof HTMLButtonElement)) return;
+				btn.addEventListener("click", () => {
+					if (!btn.value) return;
+					const { keyData, selectedLayout, layout } = data;
+					if ("key" in keyData) return;
 
-				const context = keyData.context.find(
-					(item) => item.key === button.value,
-				);
-
-				if (context)
-					store.setState(
-						{
-							layout: layout,
-							keyData: { ...context, selectedContext: context.key },
-							selectedLayout: selectedLayout,
-						},
-						"test",
+					const context = keyData.context.find(
+						(item) => item.key === btn.value,
 					);
+
+					if (context)
+						store.setState(
+							{
+								layout: layout,
+								keyData: { ...context, selectedContext: context.key },
+								selectedLayout: selectedLayout,
+							},
+							"test",
+						);
+				});
 			});
 		}
 	}

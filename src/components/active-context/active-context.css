@@ -1,13 +1,18 @@
 x-active-context {
+	.noContext {
+		font: bold 2rem / 1.5 sans-serif;
+		color: white;
+	}
 	.goUpButton {
 		margin-right: 2rem;
 		background-color: royalblue;
 	}
 	background: radial-gradient(at 50%, darkorchid, magenta);
+	height: 100px;
 	transition: all 0.3s ease-in-out;
-	animation: pulse 14s infinite;
+	animation: pulse 4s infinite;
 	&:hover {
-		filter: brightness(1.2);
+		filter: grayscale(1.2);
 	}
 	display: flex;
 	justify-content: center;
@@ -29,12 +34,12 @@ x-active-context {
 
 @keyframes pulse {
 	0% {
-		transform: scaleY(1);
+		filter: brightness(1);
 	}
 	50% {
-		transform: scaleY(1.1);
+		filter: brightness(1.2);
 	}
 	100% {
-		transform: scaleY(1);
+		filter: brightness(1);
 	}
 }

@@ -1,9 +1,8 @@
-import { changeLoadout, fetchKeyLayout } from "../../utils/fetch";
 import { store } from "../../store/keyStore";
 import type { KeysideData, LayoutData, SelectedLayout } from "../../types";
+import { changeLoadout, fetchKeyLayout } from "../../utils/fetch";
 import { layoutsArray } from "../../utils/helpers";
 import type { KeyboardSide } from "../keyboard-side/keyboard-side";
-import type { MapContext } from "../active-context/active-context";
 
 export class MainArea extends HTMLElement {
 	constructor() {
@@ -43,13 +42,13 @@ export class MainArea extends HTMLElement {
       <x-active-context></x-active-context>
       <div class="keyboards-container">
             <x-keyboard-side side="left"></x-keyboard-side>
-               <select value=${selectedLayout}>
+               <select >
                ${layoutsArray
 									.map(
 										({ value, name }) =>
-											`<option value="${value}">${name}</option>`,
+											`<option ${value === selectedLayout ? "selected" : ""} value="${value}">${name}</option>`,
 									)
-									.join()}
+									.join("")}
                </select>
            <x-keyboard-side side="right"></x-keyboard-side>
       </div>`;
@@ -60,9 +59,9 @@ export class MainArea extends HTMLElement {
 			if (e.target instanceof HTMLSelectElement) {
 				const value = e.target.value as SelectedLayout;
 				const keyData = await changeLoadout(value);
-				if (this.layout) {
-					store.setState({ layout, keyData, selectedLayout: value }, "test");
-				}
+				const newData = { layout, keyData, selectedLayout: value };
+				store.setState(newData, "main");
+				store.setState(newData, "test");
 			}
 		});
 
