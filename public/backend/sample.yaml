@@ -71,7 +71,6 @@ left:
   - key: "x"
     value: ""
     desc: ""
-
   - key: "ESC"
     value: ""
     desc: ""

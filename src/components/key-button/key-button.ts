@@ -40,7 +40,7 @@ export class KeyButton extends HTMLElement {
 		if (this.value[0] === "/") {
 			html += `<img src="icons/${this.value}.png" />`;
 		} else {
-			html += `<div>${this.value}</div>`;
+			html += `<div class="noDesc">${this.value}</div>`;
 		}
 
 		const voiceCommand = this.voiceCommand

@@ -1,4 +1,6 @@
 x-key-button {
+	.noDesc {
+	}
 	.wrapper {
 		display: flex;
 		justify-content: center;
