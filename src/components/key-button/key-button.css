@@ -10,20 +10,21 @@ x-key-button {
 		height: 80px;
 		background: lavender;
 		font-size: 1.5rem;
-		border: 4px inset blue;
+		border: 4px inset lightyellow;
 
-		border-radius: var(--bdrs-big);
+		border-radius: var(--bdrs-huge);
 
 		&:hover {
+			transform: translateY(-2px);
+			outline: 4px solid gainsboro;
+			outline-offset: -11px;
 			transition: transform 100ms ease-in-out;
 			.key-hidden {
-				display: block;
-			}
-			.voice-command {
+				/* opacity: 1; */
 				display: block;
 			}
 			border: 4px inset mediumorchid;
-			transform: scale(1.1), translateX(10px);
+			animation: spread 500ms ease-in-out forwards;
 		}
 	}
 
@@ -32,33 +33,33 @@ x-key-button {
 	}
 
 	.key-hidden {
+		/* opacity: 0; */
 		display: none;
-		border: 8px inset indianred;
-		border-radius: var(--bdrs-normal);
 
+		.desc {
+			background: linear-gradient(mediumspringgreen, snow);
+		}
+		.voice-command {
+			background: linear-gradient(blue, snow);
+		}
+
+		transition: opacity 100ms;
 		position: absolute;
-		max-width: 30vw;
+		margin-bottom: 8rem;
+		font:
+			bold 1.5rem / 1.5 "Courier New",
+			sans-serif;
+		border-radius: var(--bdrs-normal);
+		max-width: 40vw;
 		text-align: center;
-		background: linen;
-		padding: 0.75rem;
+		padding: 1.75rem;
 	}
+
 	.empty {
 		&:hover {
 			border: 4px inset darkgray;
 		}
 		background-color: gainsboro;
-	}
-	.voice-command {
-		display: none;
-		position: absolute;
-		border: 8px inset white;
-		animation: 1s change infinite;
-		max-width: 30vw;
-		text-align: center;
-		padding: 0.75rem;
-		background-color:
-			radial-gradient(circle at center, snow, indigo),
-			radial-gradient(circle at center, teal, white);
 	}
 }
 
@@ -68,5 +69,14 @@ x-key-button {
 	}
 	100% {
 		transform: rotate(360deg);
+	}
+}
+
+@keyframes spread {
+	0% {
+		box-shadow: 0 0 0 0 white;
+	}
+	100% {
+		box-shadow: 0 0 20px 10px blueviolet;
 	}
 }

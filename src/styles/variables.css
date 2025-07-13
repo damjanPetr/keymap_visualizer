@@ -1,8 +1,11 @@
 :root {
 	--bdrs-small: 2px;
 	--bdrs-normal: 4px;
-	--bdrs-big: 8px;
+	--bdrs-large: 8px;
+	--bdrs-huge: 8px;
 
 	--space-small: 0.5rem;
-	--space-medium: 1rem;
+	--space-normal: 1rem;
+	--space-large: 1rem;
+	--space-huge: 2rem;
 }

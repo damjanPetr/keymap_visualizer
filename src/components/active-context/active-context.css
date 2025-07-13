@@ -26,7 +26,7 @@ x-active-context {
 	.selectContextButton {
 		font: bold 2rem / 1.5 sans-serif;
 		border-bottom: 5px dashed snow;
-		border-radius: var(--bdrs-big);
+		border-radius: var(--bdrs-large);
 		color: white;
 		padding: 0.5rem 1rem;
 	}

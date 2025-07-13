@@ -45,11 +45,22 @@ export class KeyButton extends HTMLElement {
 			? `<div class="voice-command">${this.voiceCommand}</div>`
 			: "";
 
+		const desc = this.desc ? `<div class="desc">${this.desc}</div>` : "";
+
 		this.innerHTML = `<div class="wrapper ${classList}">
-        <div class="key-hidden">${this.desc}</div>
+        <div class="key-hidden">
         ${voiceCommand}
+        ${desc}
+        </div>
+
         ${html}
       </div>`;
+		const img = this.querySelector("img");
+		if (img) {
+			img.addEventListener("error", (e) => {
+				img.src = img.src.replace(".png", ".svg");
+			});
+		}
 	}
 }
 
