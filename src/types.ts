@@ -15,6 +15,7 @@ export interface Cell {
 export interface ContextItem {
 	key: string;
 	name: string;
+	value: string;
 	left: Cell[];
 	right: Cell[];
 }
@@ -23,7 +24,7 @@ export interface KeysideData {
 	context: ContextItem[];
 	left: Cell[];
 	right: Cell[];
-	selectedContext?: string;
+	selectedContext: string;
 }
 
 export type SelectedLayout = (typeof layoutsArray)[number]["value"];

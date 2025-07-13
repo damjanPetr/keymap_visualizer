@@ -24,7 +24,7 @@ x-key-button {
 				display: block;
 			}
 			border: 4px inset mediumorchid;
-			animation: spread 500ms ease-in-out forwards;
+			animation: spread 200ms ease-in-out forwards;
 		}
 	}
 

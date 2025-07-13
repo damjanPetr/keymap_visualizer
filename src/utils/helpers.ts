@@ -1,5 +1,5 @@
 import { store } from "../store/keyStore";
-import type { SelectedLayout } from "../types";
+import type { ContextItem, KeysideData, SelectedLayout } from "../types";
 import { layoutsArray } from "./consts";
 import { changeLoadout, fetchKeyLayout } from "./fetch";
 
@@ -24,3 +24,28 @@ export const moveLayout = async (
 	store.setState({ layout, keyData, selectedLayout: nextLayout }, "test");
 };
 export { layoutsArray };
+
+export function isContextItem(item: unknown): item is ContextItem {
+	if (typeof item !== "object" || item === null || !("name" in item)) {
+		return false;
+	}
+	return true;
+}
+
+export function isKeysideDataItem(item: unknown): item is KeysideData {
+	if (
+		typeof item !== "object" ||
+		item === null ||
+		!("selectedContext" in item)
+	) {
+		return false;
+	}
+	return true;
+}
+
+export function fixPngToSvg(img: HTMLImageElement | null) {
+	if (!img) return;
+	img.addEventListener("error", () => {
+		img.src = img.src.replace(".png", ".svg");
+	});
+}

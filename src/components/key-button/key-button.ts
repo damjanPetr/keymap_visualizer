@@ -1,3 +1,5 @@
+import { fixPngToSvg } from "../../utils/helpers";
+
 export class KeyButton extends HTMLElement {
 	static observedAttributes = ["value", "desc", "hidden"];
 
@@ -55,12 +57,7 @@ export class KeyButton extends HTMLElement {
 
         ${html}
       </div>`;
-		const img = this.querySelector("img");
-		if (img) {
-			img.addEventListener("error", (e) => {
-				img.src = img.src.replace(".png", ".svg");
-			});
-		}
+		fixPngToSvg(this.querySelector("img"));
 	}
 }
 

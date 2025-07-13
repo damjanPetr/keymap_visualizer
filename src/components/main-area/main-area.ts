@@ -19,7 +19,10 @@ export class MainArea extends HTMLElement {
 		store.setState(
 			{
 				layout,
-				keyData,
+				keyData: {
+					...keyData,
+					selectedContext: "",
+				},
 				selectedLayout: "win-key",
 			},
 			"main",
@@ -59,7 +62,14 @@ export class MainArea extends HTMLElement {
 			if (e.target instanceof HTMLSelectElement) {
 				const value = e.target.value as SelectedLayout;
 				const keyData = await changeLoadout(value);
-				const newData = { layout, keyData, selectedLayout: value };
+				const newData = {
+					layout,
+					keyData: {
+						...keyData,
+						selectedContext: "",
+					},
+					selectedLayout: value,
+				};
 				store.setState(newData, "main");
 				store.setState(newData, "test");
 			}

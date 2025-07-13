@@ -25,6 +25,7 @@ const emptyStoreValues: StoreValues = {
 		left: [],
 		right: [],
 		context: [],
+		selectedContext: "",
 	},
 };
 

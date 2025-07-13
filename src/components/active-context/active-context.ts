@@ -1,4 +1,5 @@
 import { store } from "../../store/keyStore";
+import { fixPngToSvg, isKeysideDataItem } from "../../utils/helpers";
 
 export class MapContext extends HTMLElement {
 	constructor() {
@@ -13,15 +14,24 @@ export class MapContext extends HTMLElement {
 
 	render() {
 		const data = store.getState("main");
-		const testData = store.getState("main");
-		if (testData.selectedLayout !== data.selectedLayout) {
-		}
-		if ("key" in data.keyData) return;
+		const testData = store.getState("test");
+		console.log("%c ", "background: red", { test: data.keyData, testData });
+		if (!isKeysideDataItem(data.keyData)) return;
 
-		const newContext = data.keyData?.context?.map(
-			(item) =>
-				`<button class="selectContextButton" value="${item.key}">${item.name}</button>`,
-		);
+		const newContext = data.keyData?.context?.map((item) => {
+			if (!isKeysideDataItem(testData.keyData)) return;
+			console.log("%c ", "background: magenta", {
+				item,
+			});
+
+			return `
+			<button tooltip="${item.name}" class="selectContextButton
+    		${item.key === testData.keyData.selectedContext ? "active" : ""}"
+        value="${item.key}">
+			   <img src="icons${item.value}.png" alt="${item.name}" />
+			</button>`;
+		});
+
 		if (!data.keyData.context) {
 			this.innerHTML = `
         <p class="noContext">No context available</p>
@@ -30,8 +40,10 @@ export class MapContext extends HTMLElement {
 		}
 		this.innerHTML = `
     		<button class="goUpButton">Go up</button>
-        <p>${newContext.join("")}</p>
+        <div>${newContext.join("")}</div>
     `;
+		const img = this.querySelector("img");
+		fixPngToSvg(img);
 
 		const button = this.querySelectorAll(".selectContextButton");
 		const goUpButton = this.querySelector(".goUpButton");

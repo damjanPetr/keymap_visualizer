@@ -24,11 +24,14 @@ x-active-context {
 		font-size: 2rem;
 	}
 	.selectContextButton {
-		font: bold 2rem / 1.5 sans-serif;
-		border-bottom: 5px dashed snow;
-		border-radius: var(--bdrs-large);
-		color: white;
 		padding: 0.5rem 1rem;
+		&.active {
+			background-color: royalblue;
+			color: white;
+		}
+	}
+	img {
+		width: 40px;
 	}
 }
 
