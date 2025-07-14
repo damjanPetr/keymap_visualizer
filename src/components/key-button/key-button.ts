@@ -1,33 +1,21 @@
 import { fixPngToSvg } from "../../utils/helpers";
 
 export class KeyButton extends HTMLElement {
-	static observedAttributes = ["value", "desc", "hidden"];
-
-	constructor() {
+	constructor(
+		public buttonKey: string,
+		public value: string,
+		public desc: string,
+		public voiceCommand: string,
+	) {
 		super();
-	}
-	value = "";
-	buttonKey = "";
-	desc = "";
-	voiceCommand = "";
-
-	attributeChangedCallback(name: string, _oldValue: string, newValue: string) {
-		if (name === "key") {
-			this.buttonKey = newValue;
-			this.render();
-		}
-
-		if (name === "value") {
-			this.value = newValue;
-			this.render();
-		}
-		if (name === "desc") {
-			this.desc = newValue;
-			this.render();
-		}
 	}
 
 	connectedCallback() {
+		this.value = this.getAttribute("value") || "";
+		this.desc = this.getAttribute("desc") || "";
+		this.voiceCommand = this.getAttribute("voiceCommand") || "";
+		this.buttonKey = this.getAttribute("buttonKey") || "";
+
 		this.render();
 	}
 

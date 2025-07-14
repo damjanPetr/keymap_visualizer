@@ -25,6 +25,7 @@ export class KeyboardSide extends HTMLElement {
 			?.map((row) => {
 				const elements = row.map((rowCell) => {
 					const selected = this.cells?.find((cell) => cell.key === rowCell);
+					console.log("%c ", "background: blue", { selected });
 					if (selected?.key) {
 						return `<x-key-button
 						value="${selected.value}"

@@ -17,10 +17,8 @@ x-key-button {
 		border-radius: var(--bdrs-huge);
 
 		&:hover {
-			transform: translateY(-2px);
 			outline: 4px solid gainsboro;
 			outline-offset: -11px;
-			transition: transform 100ms ease-in-out;
 			.key-hidden {
 				/* opacity: 1; */
 				display: block;
@@ -42,7 +40,8 @@ x-key-button {
 			background: linear-gradient(mediumspringgreen, snow);
 		}
 		.voice-command {
-			background: linear-gradient(blue, snow);
+			background: linear-gradient(navy, mediumblue, navy);
+			color: white;
 		}
 
 		transition: opacity 100ms;
