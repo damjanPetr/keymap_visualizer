@@ -43,6 +43,7 @@ export class MapContext extends HTMLElement {
         <div>${newContext.join("")}</div>
     `;
 		const img = this.querySelector("img");
+		// todo
 		fixPngToSvg(img);
 
 		const button = this.querySelectorAll(".selectContextButton");
