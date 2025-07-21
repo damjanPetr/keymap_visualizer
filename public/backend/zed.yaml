@@ -16,7 +16,7 @@ left:
     desc: "find previous search term"
     voiceCommand: "prev"
   - key: "4"
-    value: /material-symbols--text-select-move-forward-word-outline-rounded"
+    value: "/material-symbols--text-select-move-forward-word-outline-rounded"
     desc: "find next search term"
     voiceCommand: "next"
   - key: "5"
