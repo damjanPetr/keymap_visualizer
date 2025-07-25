@@ -57,10 +57,14 @@ x-key-button {
 	}
 
 	.empty {
+		background-color: gainsboro;
+
 		&:hover {
 			border: 4px inset darkgray;
 		}
-		background-color: gainsboro;
+	}
+	.hasDesc {
+		background-color: violet;
 	}
 }
 

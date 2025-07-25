@@ -36,7 +36,9 @@ export class KeyButton extends HTMLElement {
 			: "";
 
 		const desc = this.desc ? `<div class="desc">${this.desc}</div>` : "";
-
+		if (this.desc && this.value === "") {
+			classList += " hasDesc";
+		}
 		this.innerHTML = `<div class="wrapper ${classList}">
         <div class="key-hidden">
         ${voiceCommand}
