@@ -43,9 +43,19 @@ export function isKeysideDataItem(item: unknown): item is KeysideData {
 	return true;
 }
 
-export function fixPngToSvg(img: HTMLImageElement | null) {
+export function fixPngToSvg(
+	img: HTMLImageElement | NodeListOf<HTMLImageElement> | null,
+) {
 	if (!img) return;
-	img.addEventListener("error", () => {
-		img.src = img.src.replace(".png", ".svg");
-	});
+	if ("length" in img) {
+		img.forEach((i) => {
+			i.addEventListener("error", () => {
+				i.src = i.src.replace(".png", ".svg");
+			});
+		});
+	} else {
+		img.addEventListener("error", () => {
+			img.src = img.src.replace(".png", ".svg");
+		});
+	}
 }

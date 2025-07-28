@@ -23,12 +23,15 @@ export class MapContext extends HTMLElement {
 			console.log("%c ", "background: magenta", {
 				item,
 			});
+			const icons = item.value
+				? `<img src="icons/${item.value}.png" alt="${item.name}" />`
+				: item.name;
 
 			return `
 			<button tooltip="${item.name}" class="selectContextButton
     		${item.key === testData.keyData.selectedContext ? "active" : ""}"
         value="${item.key}">
-			   <img src="icons${item.value}.png" alt="${item.name}" />
+			   ${icons}
 			</button>`;
 		});
 
@@ -42,8 +45,10 @@ export class MapContext extends HTMLElement {
     		<button class="goUpButton">Go up</button>
         <div>${newContext.join("")}</div>
     `;
-		const img = this.querySelector("img");
-		// todo
+
+		const img = this.querySelectorAll("img");
+
+		img.length;
 		fixPngToSvg(img);
 
 		const button = this.querySelectorAll(".selectContextButton");

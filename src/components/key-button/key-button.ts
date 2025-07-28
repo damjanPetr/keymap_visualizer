@@ -27,7 +27,7 @@ export class KeyButton extends HTMLElement {
 		if (this.value === "") {
 			classList += "empty";
 		}
-		let style = `style="${this.plusStyle ? this.plusStyle : ""}"`;
+		const style = `style="${this.plusStyle ? this.plusStyle : ""}"`;
 
 		if (this.value[0] === "/") {
 			html += `<img ${style} src="icons/${this.value}.png" />`;
