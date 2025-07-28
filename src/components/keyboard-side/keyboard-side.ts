@@ -31,7 +31,7 @@ export class KeyboardSide extends HTMLElement {
 						value="${selected.value}"
 						desc="${selected.desc}"
 						key="${selected.key}"
-						${selected.voiceCommand ? `voiceCommand="${selected.voiceCommand}"` : ""}>
+						plusStyle="${selected.plusStyle}">
 						</x-key-button>`;
 					}
 					return `<x-key-button value="1" desc="no value" key="\\"></x-key-button>`;

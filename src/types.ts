@@ -10,6 +10,7 @@ export interface Cell {
 	value: string;
 	desc: string;
 	voiceCommand: string;
+	plusStyle?: string;
 }
 
 export interface ContextItem {

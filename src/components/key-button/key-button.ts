@@ -6,6 +6,7 @@ export class KeyButton extends HTMLElement {
 		public value: string,
 		public desc: string,
 		public voiceCommand: string,
+		public plusStyle: string,
 	) {
 		super();
 	}
@@ -15,6 +16,7 @@ export class KeyButton extends HTMLElement {
 		this.desc = this.getAttribute("desc") || "";
 		this.voiceCommand = this.getAttribute("voiceCommand") || "";
 		this.buttonKey = this.getAttribute("buttonKey") || "";
+		this.plusStyle = this.getAttribute("plusStyle") || "";
 
 		this.render();
 	}
@@ -25,8 +27,10 @@ export class KeyButton extends HTMLElement {
 		if (this.value === "") {
 			classList += "empty";
 		}
+		let style = `style="${this.plusStyle ? this.plusStyle : ""}"`;
+
 		if (this.value[0] === "/") {
-			html += `<img src="icons/${this.value}.png" />`;
+			html += `<img ${style} src="icons/${this.value}.png" />`;
 		} else {
 			html += `<div class="noDesc">${this.value}</div>`;
 		}
