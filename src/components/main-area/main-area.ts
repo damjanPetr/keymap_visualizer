@@ -25,7 +25,7 @@ export class MainArea extends HTMLElement {
 				},
 				selectedLayout: "win-key",
 			},
-			"main",
+			"globalKeyMap",
 		);
 		store.setState(
 			{
@@ -35,24 +35,12 @@ export class MainArea extends HTMLElement {
 			},
 			"test",
 		);
-	}
-
-	render() {
-		const { keyData, layout, selectedLayout } = store.getState("test");
-		console.log("%c ", "background: blue", { keyData, layout, selectedLayout });
 
 		this.innerHTML = `
       <x-active-context></x-active-context>
       <div class="keyboards-container">
             <x-keyboard-side side="left"></x-keyboard-side>
-               <select >
-               ${layoutsArray
-									.map(
-										({ value, name }) =>
-											`<option ${value === selectedLayout ? "selected" : ""} value="${value}">${name}</option>`,
-									)
-									.join("")}
-               </select>
+               <select></select>
            <x-keyboard-side side="right"></x-keyboard-side>
       </div>`;
 
@@ -70,10 +58,26 @@ export class MainArea extends HTMLElement {
 					},
 					selectedLayout: value,
 				};
-				store.setState(newData, "main");
+				store.setState(newData, "globalKeyMap");
 				store.setState(newData, "test");
 			}
 		});
+		this.render();
+	}
+
+	render() {
+		const { keyData, layout, selectedLayout } = store.getState("test");
+		console.log("%c ", "background: blue", { keyData, layout, selectedLayout });
+
+		const selectedElement = this.querySelector("select");
+		if (selectedElement instanceof HTMLSelectElement) {
+			selectedElement.innerHTML = layoutsArray
+				.map(
+					({ value, name }) =>
+						`<option ${value === selectedLayout ? "selected" : ""} value="${value}">${name}</option>`,
+				)
+				.join("");
+		}
 
 		const leftSide = this.querySelector(
 			"x-keyboard-side:nth-of-type(1)",

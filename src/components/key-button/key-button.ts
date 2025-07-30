@@ -1,6 +1,8 @@
 import { fixPngToSvg } from "../../utils/helpers";
 
 export class KeyButton extends HTMLElement {
+	static observedAttributes = ["value", "desc", "voiceCommand", "plusStyle"];
+
 	constructor(
 		public buttonKey: string,
 		public value: string,
@@ -15,31 +17,31 @@ export class KeyButton extends HTMLElement {
 		this.value = this.getAttribute("value") || "";
 		this.desc = this.getAttribute("desc") || "";
 		this.voiceCommand = this.getAttribute("voiceCommand") || "";
-		this.buttonKey = this.getAttribute("buttonKey") || "";
 		this.plusStyle = this.getAttribute("plusStyle") || "";
 
 		this.render();
 	}
 
 	render() {
-		let html = "";
+		let iconElement = "";
 		let classList = "";
 		if (this.value === "") {
 			classList += "empty";
 		}
-		const style = `style="${this.plusStyle ? this.plusStyle : ""}"`;
+		const imgStyle = this.plusStyle && `style="${this.plusStyle}"`;
 
 		if (this.value[0] === "/") {
-			html += `<img ${style} src="icons/${this.value}.png" />`;
+			iconElement = `<img ${imgStyle} src="icons/${this.value}.png" />`;
 		} else {
-			html += `<div class="noDesc">${this.value}</div>`;
+			iconElement = `<div class="noDesc">${this.value}</div>`;
 		}
 
-		const voiceCommand = this.voiceCommand
-			? `<div class="voice-command">${this.voiceCommand}</div>`
-			: "";
+		const voiceCommand =
+			this.voiceCommand &&
+			`<div class="voice-command">${this.voiceCommand}</div>`;
 
-		const desc = this.desc ? `<div class="desc">${this.desc}</div>` : "";
+		// console.log("%c voiceCommand", "background: pink", this.voiceCommand);
+		const desc = this.desc && `<div class="desc">${this.desc}</div>`;
 		if (this.desc && this.value === "") {
 			classList += " hasDesc";
 		}
@@ -48,10 +50,21 @@ export class KeyButton extends HTMLElement {
         ${voiceCommand}
         ${desc}
         </div>
-
-        ${html}
+        ${iconElement}
       </div>`;
 		fixPngToSvg(this.querySelector("img"));
+	}
+
+	attributeChangedCallback(name: string, _oldValue: string, newValue: string) {
+		switch (name) {
+			case "value":
+			case "desc":
+			case "voiceCommand":
+			case "plusStyle":
+				this[name] = newValue;
+				break;
+		}
+		this.render();
 	}
 }
 

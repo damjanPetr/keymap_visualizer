@@ -13,7 +13,7 @@ interface StoreValues {
 
 interface Store {
 	test: StoreValues;
-	main: StoreValues;
+	globalKeyMap: StoreValues;
 }
 
 const emptyStoreValues: StoreValues = {
@@ -31,7 +31,7 @@ const emptyStoreValues: StoreValues = {
 
 const state: Store = {
 	test: emptyStoreValues,
-	main: emptyStoreValues,
+	globalKeyMap: emptyStoreValues,
 };
 
 type Stores = keyof typeof state;
@@ -39,7 +39,7 @@ type Listener = (value: unknown) => void;
 
 const listeners: Record<Stores, Array<Listener>> = {
 	test: [],
-	main: [],
+	globalKeyMap: [],
 };
 
 const store = {

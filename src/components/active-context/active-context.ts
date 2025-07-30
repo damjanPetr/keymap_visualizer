@@ -13,16 +13,12 @@ export class MapContext extends HTMLElement {
 	}
 
 	render() {
-		const data = store.getState("main");
+		const data = store.getState("globalKeyMap");
 		const testData = store.getState("test");
-		console.log("%c ", "background: red", { test: data.keyData, testData });
 		if (!isKeysideDataItem(data.keyData)) return;
 
 		const newContext = data.keyData?.context?.map((item) => {
 			if (!isKeysideDataItem(testData.keyData)) return;
-			console.log("%c ", "background: magenta", {
-				item,
-			});
 			const icons = item.value
 				? `<img src="icons/${item.value}.png" alt="${item.name}" />`
 				: item.name;
