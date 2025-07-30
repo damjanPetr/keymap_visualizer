@@ -6,9 +6,9 @@ export class MapContext extends HTMLElement {
 		super();
 	}
 
-	adoptedCallback() {}
-
 	connectedCallback() {
+		store.subscribe(this.render.bind(this), "test");
+
 		this.render();
 	}
 

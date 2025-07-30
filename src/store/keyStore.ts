@@ -1,5 +1,5 @@
 import type {
-	ContextItem,
+	KeymapContextItem,
 	KeysideData,
 	LayoutData,
 	SelectedLayout,
@@ -7,7 +7,7 @@ import type {
 
 interface StoreValues {
 	layout: LayoutData;
-	keyData: KeysideData | ContextItem;
+	keyData: KeysideData | KeymapContextItem;
 	selectedLayout?: SelectedLayout;
 }
 

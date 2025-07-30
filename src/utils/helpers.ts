@@ -1,5 +1,5 @@
 import { store } from "../store/keyStore";
-import type { ContextItem, KeysideData, SelectedLayout } from "../types";
+import type { KeymapContextItem, KeysideData, SelectedLayout } from "../types";
 import { layoutsArray } from "./consts";
 import { changeLoadout, fetchKeyLayout } from "./fetch";
 
@@ -25,7 +25,7 @@ export const moveLayout = async (
 };
 export { layoutsArray };
 
-export function isContextItem(item: unknown): item is ContextItem {
+export function isContextItem(item: unknown): item is KeymapContextItem {
 	if (typeof item !== "object" || item === null || !("name" in item)) {
 		return false;
 	}

@@ -1,9 +1,9 @@
-import "../key-button/key-button";
 import type { KeysideData, LayoutData } from "../../types";
 import { store } from "../../store/keyStore";
 
 export class KeyboardSide extends HTMLElement {
 	side: "left" | "right";
+	// @ts-ignore
 	private rows?: LayoutData["left"] = [];
 	private cells?: KeysideData["left"] = [];
 
@@ -26,7 +26,6 @@ export class KeyboardSide extends HTMLElement {
 		if (!side) return;
 
 		const { layout, keyData } = store.getState("test");
-		console.log("%c green", "background: test", { mest: layout[side] });
 		const rows = layout[side]
 			?.map((row) => {
 				const keyButtonElementns = row.map((rowCellKey) => {
@@ -54,17 +53,13 @@ export class KeyboardSide extends HTMLElement {
 		this.render();
 	}
 	render() {
-		console.log("%c uhetoaueas", "background: skyblue", {
-			rows: this.rows,
-			cells: this.cells,
-		});
 		this.cells?.forEach((cell) => {
-			const test = this.querySelector(`x-key-button[key="${cell.key}"]`);
+			const keyButton = this.querySelector(`x-key-button[key="${cell.key}"]`);
 
-			test?.setAttribute("value", cell.value);
-			test?.setAttribute("desc", cell.desc);
-			test?.setAttribute("voiceCommand", cell.voiceCommand);
-			test?.setAttribute("plusStyle", cell?.plusStyle || "");
+			keyButton?.setAttribute("value", cell.value || "");
+			keyButton?.setAttribute("desc", cell.desc || "");
+			keyButton?.setAttribute("voice-command", cell.voiceCommand || "");
+			keyButton?.setAttribute("plusStyle", cell?.plusStyle || "");
 		});
 	}
 }

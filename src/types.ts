@@ -13,7 +13,7 @@ export interface Cell {
 	plusStyle?: string;
 }
 
-export interface ContextItem {
+export interface KeymapContextItem {
 	key: string;
 	name: string;
 	value: string;
@@ -22,7 +22,7 @@ export interface ContextItem {
 }
 
 export interface KeysideData {
-	context: ContextItem[];
+	context: KeymapContextItem[];
 	left: Cell[];
 	right: Cell[];
 	selectedContext: string;
