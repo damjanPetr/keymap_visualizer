@@ -5,16 +5,18 @@
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Keybinding Layout Visualizer</title>
-        <link rel="stylesheet" href="./src/index.css" />
+        <link rel="stylesheet" href="./src/style.css" />
         <script defer type="module"  src="./src/index.ts"></script>
     </head>
     <body>
         <my-router>
             <header>
-        <navigation>
-            <a href="/">HOME</h1>
-            <a href="test">DOCS</a>
-        </navigation>
+        <nav>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="test">DOCS</a>
+            </ul>
+        </nav>
         </header>
         <slot>
             <main>

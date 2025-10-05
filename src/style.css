@@ -1,0 +1,40 @@
+@import "./styles/reset.css";
+@import "./styles/variables.css";
+
+header {
+	background: indigo;
+	height: 50px;
+	font:
+		2rem fantasy,
+		"Courier New",
+		sans-serif;
+
+	color: azure;
+
+	&:hover {
+		text-underline-offset: 0.25rem;
+		text-decoration: underline;
+	}
+
+	nav {
+		ul {
+			padding: 0;
+			margin: 0;
+			display: flex;
+			justify-content: space-between;
+			margin-left: auto;
+			align-items: center;
+			width: 100px;
+			a {
+				transition: color 0.2s;
+				&:hover {
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+main {
+	min-height: calc(100vh - 50px);
+}

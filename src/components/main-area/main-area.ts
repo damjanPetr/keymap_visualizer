@@ -3,6 +3,8 @@ import type { KeysideData, LayoutData, SelectedLayout } from "../../types";
 import { changeLoadout, fetchKeyLayout } from "../../utils/fetch";
 import { layoutsArray } from "../../utils/helpers";
 import type { KeyboardSide } from "../keyboard-side/keyboard-side";
+import type { KeypadElement } from "../keypad-element/keypad-element";
+import "./main-area.css";
 
 export class MainArea extends HTMLElement {
 	constructor() {
@@ -36,8 +38,16 @@ export class MainArea extends HTMLElement {
 			"test",
 		);
 
+		const keypadButton = `<div>
+			<button class="keypadBtn">
+				Keypad
+			</button>
+		</div>`;
+
 		this.innerHTML = `
+	    ${keypadButton}
       <x-active-context></x-active-context>
+      <x-keypad-element/>
       <div class="keyboards-container">
             <x-keyboard-side side="left"></x-keyboard-side>
                <select></select>
@@ -45,6 +55,28 @@ export class MainArea extends HTMLElement {
       </div>`;
 
 		const select = this.querySelector("select");
+
+		const button = this.querySelector("button.keypadBtn");
+
+		button?.addEventListener("click", async () => {
+			const test = document.querySelector("x-keypad-element") as KeypadElement;
+			const layout = await fetchKeyLayout("keypad");
+			const keyData = await changeLoadout("keypad");
+			store.setState(
+				{
+					layout,
+					keyData,
+					selectedLayout: "keypad",
+				},
+				"globalKeyMap",
+			);
+
+			test.data = {
+				layout,
+				keyData,
+				selectedLayout: "keypad",
+			};
+		});
 
 		select?.addEventListener("change", async (e) => {
 			if (e.target instanceof HTMLSelectElement) {
@@ -95,8 +127,4 @@ export class MainArea extends HTMLElement {
 	}
 }
 
-const registerMainArea = () => {
-	customElements.define("x-main-area", MainArea);
-};
-
-export { registerMainArea };
+customElements.define("x-main-area", MainArea);

@@ -5,4 +5,5 @@ export const layoutsArray = [
 	{ value: "win-key", name: "Windows keys" },
 	{ value: "zed", name: "Zed" },
 	{ value: "excel", name: "Excel" },
+	{ value: "keypad", name: "Keypad" },
 ] as const;
