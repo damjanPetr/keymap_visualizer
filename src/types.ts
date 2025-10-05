@@ -28,4 +28,14 @@ export interface KeysideData {
 	selectedContext: string;
 }
 
+export interface StoreValues {
+	layout: LayoutData;
+	keyData: KeysideData | KeymapContextItem;
+	selectedLayout?: SelectedLayout;
+}
+
+export interface Store {
+	test: StoreValues;
+	globalKeyMap: StoreValues;
+}
 export type SelectedLayout = (typeof layoutsArray)[number]["value"];

@@ -1,9 +1,9 @@
+import "./bottom-panel.css";
+
 export class BottomPanel extends HTMLElement {
 	connectedCallback() {
 		this.innerHTML = "<footer>Footer</footer>";
 	}
 }
 
-export const registerBottomPanel = () => {
-	customElements.define("x-bottom-panel", BottomPanel);
-};
+customElements.define("x-bottom-panel", BottomPanel);

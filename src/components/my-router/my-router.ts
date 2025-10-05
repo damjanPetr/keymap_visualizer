@@ -33,8 +33,4 @@ export class Router extends HTMLElement {
 	}
 }
 
-const registerRouter = () => {
-	customElements.define("x-my-router", Router);
-};
-
-export { registerRouter };
+customElements.define("x-my-router", Router);

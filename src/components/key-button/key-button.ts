@@ -1,5 +1,7 @@
 import { fixPngToSvg } from "../../utils/helpers";
 
+import "./key-button.css";
+
 export class KeyButton extends HTMLElement {
 	static observedAttributes = ["value", "desc", "voice-command", "plus-style"];
 
@@ -76,8 +78,4 @@ export class KeyButton extends HTMLElement {
 	}
 }
 
-const registerKeyButton = () => {
-	customElements.define("x-key-button", KeyButton);
-};
-
-export { registerKeyButton };
+customElements.define("x-key-button", KeyButton);

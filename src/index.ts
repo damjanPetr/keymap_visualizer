@@ -1,22 +1,8 @@
-import { registerMapContext } from "./components/active-context/active-context";
-import { registerBottomPanel } from "./components/bottom-panel/bottom-panel";
-import { registerKeyButton } from "./components/key-button/key-button";
-import { registerKeyboardSide } from "./components/keyboard-side/keyboard-side";
-import { registerMainArea } from "./components/main-area/main-area";
-import { registerRouter } from "./components/my-router/my-router";
+import "./components/index";
 import type { SelectedLayout } from "./types";
 import { moveLayout } from "./utils/helpers";
 
-const app = () => {
-	registerBottomPanel();
-	registerRouter();
-	registerMainArea();
-	registerKeyButton();
-	registerMapContext();
-	registerKeyboardSide();
-};
-
-document.addEventListener("DOMContentLoaded", app);
+document.addEventListener("DOMContentLoaded", () => {});
 
 document.addEventListener("keydown", async (event) => {
 	const currentLayout = document.querySelector("select")

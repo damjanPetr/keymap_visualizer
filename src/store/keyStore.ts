@@ -1,20 +1,4 @@
-import type {
-	KeymapContextItem,
-	KeysideData,
-	LayoutData,
-	SelectedLayout,
-} from "../types";
-
-interface StoreValues {
-	layout: LayoutData;
-	keyData: KeysideData | KeymapContextItem;
-	selectedLayout?: SelectedLayout;
-}
-
-interface Store {
-	test: StoreValues;
-	globalKeyMap: StoreValues;
-}
+import type { Store, StoreValues } from "../types";
 
 const emptyStoreValues: StoreValues = {
 	layout: {

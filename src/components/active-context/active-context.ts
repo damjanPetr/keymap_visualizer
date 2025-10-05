@@ -1,5 +1,6 @@
 import { store } from "../../store/keyStore";
 import { fixPngToSvg, isKeysideDataItem } from "../../utils/helpers";
+import "./active-context.css";
 
 export class MapContext extends HTMLElement {
 	constructor() {
@@ -18,7 +19,7 @@ export class MapContext extends HTMLElement {
 		if (!isKeysideDataItem(data.keyData)) return;
 
 		const newContext = data.keyData?.context?.map((item) => {
-			if (!isKeysideDataItem(testData.keyData)) return;
+			if (!isKeysideDataItem(testData.keyData)) return "";
 			const icons = item.value
 				? `<img src="icons/${item.value}.png" alt="${item.name}" />`
 				: item.name;
@@ -84,8 +85,4 @@ export class MapContext extends HTMLElement {
 	}
 }
 
-const registerMapContext = () => {
-	customElements.define("x-active-context", MapContext);
-};
-
-export { registerMapContext };
+customElements.define("x-active-context", MapContext);

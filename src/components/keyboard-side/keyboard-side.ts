@@ -1,9 +1,9 @@
 import type { KeysideData, LayoutData } from "../../types";
 import { store } from "../../store/keyStore";
+import "./keyboard-side.css";
 
 export class KeyboardSide extends HTMLElement {
 	side: "left" | "right";
-	// @ts-ignore
 	private rows?: LayoutData["left"] = [];
 	private cells?: KeysideData["left"] = [];
 
@@ -64,8 +64,4 @@ export class KeyboardSide extends HTMLElement {
 	}
 }
 
-const registerKeyboardSide = () => {
-	customElements.define("x-keyboard-side", KeyboardSide);
-};
-
-export { registerKeyboardSide };
+customElements.define("x-keyboard-side", KeyboardSide);
